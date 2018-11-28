@@ -34,7 +34,7 @@ namespace GB_Manufacturing_IMS
         private void Main_Load(object sender, EventArgs e)
         {
         //Load login dialog
-            f.showWindow("login", this, loginWindow, true);
+            f.createWindow("login", this, loginWindow, true);
         }
 
         private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace GB_Manufacturing_IMS
             }
             else
             {  
-                f.showWindow("Inventory", this, InventoryWindow, false);
+                f.createWindow("Inventory", this, InventoryWindow, false);
             }
          
         }
@@ -67,7 +67,7 @@ namespace GB_Manufacturing_IMS
             //CLOSE ALL WINDOWS
             InventoryWindow.Hide();
             //Show login page
-            f.showWindow("Login", this, loginWindow, true);
+            f.createWindow("Login", this, loginWindow, true);
 
         }
 

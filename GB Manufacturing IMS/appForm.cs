@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*Class creation to handle keeping new form creation inside the MAIN window. */
+
 namespace GB_Manufacturing_IMS
 {
     class appForm
     {
-        public void showWindow(string name, Form currentForm, Form targetForm, bool isDiag)
+        //createWindow to show new form. 
+        public void createWindow(string name, Form currentForm, Form targetForm, bool isDiag)
     {
         bool isOpen = false;
         foreach (Form f in Application.OpenForms)
