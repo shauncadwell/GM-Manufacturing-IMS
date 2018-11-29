@@ -20,6 +20,7 @@ namespace GB_Manufacturing_IMS
         Inventory InventoryWindow = new Inventory();
         login loginWindow = new login();
 
+        // Comment
 
         public Main()
         {
