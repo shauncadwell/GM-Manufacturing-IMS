@@ -23,7 +23,7 @@ namespace GB_Manufacturing_IMS
                 f.Focus();
                 break;
                     //comment to force change
-                    // Kyle Price was here
+                    // Kyle was here
             }
         }
         if (isOpen == false) 

@@ -17,9 +17,12 @@ namespace GB_Manufacturing_IMS
 
         //LOAD ALL WINDOWS AND DIALOGS
         appForm f = new appForm();
+
+        //App form objects will need to be created for each forum. 
         Inventory InventoryWindow = new Inventory();
         login loginWindow = new login();
 
+        // Comment is awesome + 1
 
         public Main()
         {
