@@ -22,7 +22,7 @@ namespace GB_Manufacturing_IMS
         Inventory InventoryWindow = new Inventory();
         login loginWindow = new login();
 
-        // Comment is awesome
+        // Comment is awesome + 1
 
         public Main()
         {
