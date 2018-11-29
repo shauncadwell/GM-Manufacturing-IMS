@@ -21,6 +21,7 @@ namespace GB_Manufacturing_IMS
         //App form objects will need to be created for each forum. 
         Inventory InventoryWindow = new Inventory();
         login loginWindow = new login();
+        NewOrder newOrder = new NewOrder();
 
         // Comment is awesome + 1
 
@@ -42,16 +43,9 @@ namespace GB_Manufacturing_IMS
 
         private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //validate rank before allowing to enter
-            if(currentUser.getRank() < 0)
-            {
-                MessageBox.Show("You cannot access this area.");
-            }
-            else
-            {  
                 f.createWindow("Inventory", this, InventoryWindow, false);
-            }
-         
+  
+     
         }
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +68,10 @@ namespace GB_Manufacturing_IMS
 
         }
 
-
+        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Create new order
+            f.createWindow("New Order", this, newOrder, false);
+        }
     }
 }

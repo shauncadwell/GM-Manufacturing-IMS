@@ -126,19 +126,20 @@
             this.orderToolStripMenuItem1,
             this.lookupToolStripMenuItem});
             this.newOrderToolStripMenuItem.Name = "newOrderToolStripMenuItem";
-            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newOrderToolStripMenuItem.Text = "Order";
             // 
             // orderToolStripMenuItem1
             // 
             this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
-            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.orderToolStripMenuItem1.Text = "New";
+            this.orderToolStripMenuItem1.Click += new System.EventHandler(this.orderToolStripMenuItem1_Click);
             // 
             // lookupToolStripMenuItem
             // 
             this.lookupToolStripMenuItem.Name = "lookupToolStripMenuItem";
-            this.lookupToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.lookupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lookupToolStripMenuItem.Text = "Lookup";
             // 
             // adminToolStripMenuItem
