@@ -37,6 +37,7 @@ namespace GB_Manufacturing_IMS
                     targetForm.MdiParent = currentForm;
                     targetForm.Dock = DockStyle.Fill;
                     targetForm.WindowState = FormWindowState.Maximized;
+              
                     targetForm.Show();
                 }
          
