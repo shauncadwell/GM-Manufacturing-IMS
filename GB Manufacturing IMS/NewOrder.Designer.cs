@@ -88,7 +88,7 @@
             // verifyBtn
             // 
             this.verifyBtn.Enabled = false;
-            this.verifyBtn.Location = new System.Drawing.Point(154, 153);
+            this.verifyBtn.Location = new System.Drawing.Point(158, 98);
             this.verifyBtn.Name = "verifyBtn";
             this.verifyBtn.Size = new System.Drawing.Size(75, 23);
             this.verifyBtn.TabIndex = 14;
@@ -99,7 +99,7 @@
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(29, 261);
+            this.description.Location = new System.Drawing.Point(33, 206);
             this.description.MinimumSize = new System.Drawing.Size(200, 70);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(200, 70);
@@ -109,7 +109,7 @@
             // addItemBtn
             // 
             this.addItemBtn.Enabled = false;
-            this.addItemBtn.Location = new System.Drawing.Point(81, 332);
+            this.addItemBtn.Location = new System.Drawing.Point(85, 277);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
             this.addItemBtn.TabIndex = 12;
@@ -119,14 +119,14 @@
             // 
             // itemQuantity
             // 
-            this.itemQuantity.Location = new System.Drawing.Point(128, 197);
+            this.itemQuantity.Location = new System.Drawing.Point(132, 142);
             this.itemQuantity.Name = "itemQuantity";
             this.itemQuantity.Size = new System.Drawing.Size(121, 20);
             this.itemQuantity.TabIndex = 11;
             // 
             // itemNumber
             // 
-            this.itemNumber.Location = new System.Drawing.Point(128, 127);
+            this.itemNumber.Location = new System.Drawing.Point(132, 72);
             this.itemNumber.Name = "itemNumber";
             this.itemNumber.Size = new System.Drawing.Size(121, 20);
             this.itemNumber.TabIndex = 9;
@@ -138,7 +138,7 @@
             this.warehouseSelect.Items.AddRange(new object[] {
             "Warehouse 1",
             "Warehouse 2"});
-            this.warehouseSelect.Location = new System.Drawing.Point(128, 95);
+            this.warehouseSelect.Location = new System.Drawing.Point(132, 40);
             this.warehouseSelect.Name = "warehouseSelect";
             this.warehouseSelect.Size = new System.Drawing.Size(121, 21);
             this.warehouseSelect.TabIndex = 8;
@@ -146,7 +146,7 @@
             // quantityLbl
             // 
             this.quantityLbl.AutoSize = true;
-            this.quantityLbl.Location = new System.Drawing.Point(13, 200);
+            this.quantityLbl.Location = new System.Drawing.Point(17, 145);
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(49, 13);
             this.quantityLbl.TabIndex = 7;
@@ -155,7 +155,7 @@
             // descriptionLbl
             // 
             this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(13, 236);
+            this.descriptionLbl.Location = new System.Drawing.Point(17, 181);
             this.descriptionLbl.Name = "descriptionLbl";
             this.descriptionLbl.Size = new System.Drawing.Size(63, 13);
             this.descriptionLbl.TabIndex = 6;
@@ -164,7 +164,7 @@
             // itemNumberLbl
             // 
             this.itemNumberLbl.AutoSize = true;
-            this.itemNumberLbl.Location = new System.Drawing.Point(13, 131);
+            this.itemNumberLbl.Location = new System.Drawing.Point(17, 76);
             this.itemNumberLbl.Name = "itemNumberLbl";
             this.itemNumberLbl.Size = new System.Drawing.Size(70, 13);
             this.itemNumberLbl.TabIndex = 5;
@@ -173,7 +173,7 @@
             // warehoulseLbl
             // 
             this.warehoulseLbl.AutoSize = true;
-            this.warehoulseLbl.Location = new System.Drawing.Point(13, 99);
+            this.warehoulseLbl.Location = new System.Drawing.Point(17, 44);
             this.warehoulseLbl.Name = "warehoulseLbl";
             this.warehoulseLbl.Size = new System.Drawing.Size(65, 13);
             this.warehoulseLbl.TabIndex = 4;
@@ -246,7 +246,7 @@
             // 
             this.itemValidityMessage.AutoSize = true;
             this.itemValidityMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.itemValidityMessage.Location = new System.Drawing.Point(14, 160);
+            this.itemValidityMessage.Location = new System.Drawing.Point(18, 105);
             this.itemValidityMessage.Name = "itemValidityMessage";
             this.itemValidityMessage.Size = new System.Drawing.Size(101, 13);
             this.itemValidityMessage.TabIndex = 15;
