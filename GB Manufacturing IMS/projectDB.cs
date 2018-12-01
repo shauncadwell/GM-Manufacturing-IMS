@@ -15,13 +15,13 @@ namespace GB_Manufacturing_IMS
     {
         int row = 0;
         int col = 0;
+        string dbconn = "Server=104.248.117.10; Database=CEIS400;Uid=CEIS400;Pwd=group5;";
 
        public void fill(DataGridView dgv, string cmd, bool needCart)
         {
 
             //Establish connection to database
-            string myConnectionString = "Server=104.248.117.10; Database=CEIS400;Uid=CEIS400;Pwd=group5;";
-            MySqlConnection conn = new MySqlConnection(myConnectionString);
+            MySqlConnection conn = new MySqlConnection(dbconn);
             conn.Open();
 
             //Store data from database
@@ -40,5 +40,19 @@ namespace GB_Manufacturing_IMS
             dgv.DataSource = bSource;
             conn.Close();
         }
+
+        public void add(string cmd)
+        {
+            //Establish connection to database
+            MySqlConnection conn = new MySqlConnection(dbconn);
+            conn.Open();
+
+            //Store data from database
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+            dataAdapter.SelectCommand = new MySqlCommand(cmd, conn);
+            conn.Close();
+        }
+
+
     }
 }
