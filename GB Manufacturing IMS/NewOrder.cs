@@ -52,11 +52,15 @@ namespace GB_Manufacturing_IMS
         private void verifyBtn_Click(object sender, EventArgs e)
         {
             bool match = Regex.IsMatch(itemNumber.Text.ToString(), @"\0-9");        // Verify only numeric data present in input
+            int num;
+            num = Convert.ToInt32(itemNumber.Text);
 
-            if (match)
+            projectDB dbconn = new projectDB();
+            if (num >= 0)
             {
                 string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
-
+                string result = dbconn.getData(materialSearch);
+                description.Text = result;
                 // Search database for equipment
                 // If no match found, check material
                 // If no match found in either table, set visibility of itemValidityMsg to true

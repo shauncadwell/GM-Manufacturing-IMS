@@ -28,5 +28,10 @@ namespace GB_Manufacturing_IMS
         {
 
         }
+
+        private void btnSubimit(object sender, EventArgs e)
+        {
+
+        }
     }
 }
