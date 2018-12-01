@@ -55,7 +55,6 @@ namespace GB_Manufacturing_IMS
 
         public string getData(string cmd)
         {
-            
             string data;
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
@@ -69,11 +68,10 @@ namespace GB_Manufacturing_IMS
                 myReader.Read();
                 //Store data from database
                 data = myReader.GetString(0);
- 
             }
             catch
             {
-                MessageBox.Show("No result found.");
+                MessageBox.Show("No result found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 data = "";
             }
             conn.Close();
