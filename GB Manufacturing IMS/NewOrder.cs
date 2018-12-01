@@ -21,6 +21,7 @@ namespace GB_Manufacturing_IMS
     public partial class NewOrder : Form
     {
         projectDB mydb = new projectDB();
+
         /*
          * 4-Dimensional array for storing order items temporarily
          * itemNumber | jobCode | description | quantity
@@ -57,7 +58,7 @@ namespace GB_Manufacturing_IMS
             if (match)
             {
                 string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
-
+                mydb.runQuery(materialSearch);
                 // Search database for equipment
                 // If no match found, check material
                 // If no match found in either table, set visibility of itemValidityMsg to true
@@ -76,7 +77,6 @@ namespace GB_Manufacturing_IMS
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
-            string itemDescription = mydb.runQuery("SELECT descrption FROM Materials WHERE itemID = " + itemNumber.Text + " LIMIT 1");
             tempOrderInfo[itemCount, 0] = itemNumber.Text;
             tempOrderInfo[itemCount, 1] = jobCode.Text;
             tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database

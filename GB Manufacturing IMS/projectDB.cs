@@ -41,16 +41,21 @@ namespace GB_Manufacturing_IMS
             conn.Close();
         }
 
-        public void runQuery(string cmd)
+        public string runQuery(string cmd)
         {
+            string data;
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
+            MySqlCommand myCommand = new MySqlCommand(cmd, conn);
             conn.Open();
+            MySqlDataReader myReader;
 
+            myReader = myCommand.ExecuteReader();
             //Store data from database
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-            dataAdapter.SelectCommand = new MySqlCommand(cmd, conn);
+            data = myReader.GetString(0);
+
             conn.Close();
+            return data;
         }
 
 
