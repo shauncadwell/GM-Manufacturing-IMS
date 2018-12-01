@@ -76,9 +76,10 @@ namespace GB_Manufacturing_IMS
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
+            string itemDescription = mydb.runQuery("SELECT descrption FROM Materials WHERE itemID = " + itemNumber.Text + " LIMIT 1");
             tempOrderInfo[itemCount, 0] = itemNumber.Text;
             tempOrderInfo[itemCount, 1] = jobCode.Text;
-            //tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database
+            tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database
             tempOrderInfo[itemCount, 3] = itemQuantity.Text;
 
             // Add item to an array and display in order preview

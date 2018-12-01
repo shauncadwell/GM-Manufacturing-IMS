@@ -41,7 +41,7 @@ namespace GB_Manufacturing_IMS
             conn.Close();
         }
 
-        public void add(string cmd)
+        public void runQuery(string cmd)
         {
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
