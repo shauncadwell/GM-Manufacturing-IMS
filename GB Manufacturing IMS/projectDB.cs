@@ -55,20 +55,31 @@ namespace GB_Manufacturing_IMS
 
         public string getData(string cmd)
         {
+            
             string data;
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
-            MySqlCommand myCommand = new MySqlCommand(cmd, conn);
-            conn.Open();
-            MySqlDataReader myReader;
+        try
+            {
+                MySqlCommand myCommand = new MySqlCommand(cmd, conn);
+                conn.Open();
+                MySqlDataReader myReader;
       
-            myReader = myCommand.ExecuteReader();
-            myReader.Read();
-            //Store data from database
-            data = myReader.GetString(0);
-
+                myReader = myCommand.ExecuteReader();
+                myReader.Read();
+                //Store data from database
+                data = myReader.GetString(0);
+ 
+            }
+            catch
+            {
+                MessageBox.Show("No result found.");
+                data = "";
+            }
             conn.Close();
             return data;
+
+
         }
 
         
