@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.jobCode = new System.Windows.Forms.TextBox();
+            this.itemValidityMessage = new System.Windows.Forms.Label();
             this.verifyBtn = new System.Windows.Forms.Button();
             this.description = new System.Windows.Forms.Label();
             this.addItemBtn = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
             this.orderSummary = new System.Windows.Forms.TextBox();
-            this.itemValidityMessage = new System.Windows.Forms.Label();
-            this.jobCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,13 +80,31 @@
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
             // 
+            // jobCode
+            // 
+            this.jobCode.Location = new System.Drawing.Point(132, 30);
+            this.jobCode.Name = "jobCode";
+            this.jobCode.Size = new System.Drawing.Size(121, 20);
+            this.jobCode.TabIndex = 1;
+            // 
+            // itemValidityMessage
+            // 
+            this.itemValidityMessage.AutoSize = true;
+            this.itemValidityMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.itemValidityMessage.Location = new System.Drawing.Point(18, 94);
+            this.itemValidityMessage.Name = "itemValidityMessage";
+            this.itemValidityMessage.Size = new System.Drawing.Size(101, 13);
+            this.itemValidityMessage.TabIndex = 15;
+            this.itemValidityMessage.Text = "Invalid Item Number";
+            this.itemValidityMessage.Visible = false;
+            // 
             // verifyBtn
             // 
             this.verifyBtn.Enabled = false;
             this.verifyBtn.Location = new System.Drawing.Point(158, 87);
             this.verifyBtn.Name = "verifyBtn";
             this.verifyBtn.Size = new System.Drawing.Size(75, 23);
-            this.verifyBtn.TabIndex = 14;
+            this.verifyBtn.TabIndex = 3;
             this.verifyBtn.Text = "Verify Item";
             this.verifyBtn.UseVisualStyleBackColor = true;
             this.verifyBtn.Click += new System.EventHandler(this.verifyBtn_Click);
@@ -107,7 +125,7 @@
             this.addItemBtn.Location = new System.Drawing.Point(85, 266);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
-            this.addItemBtn.TabIndex = 12;
+            this.addItemBtn.TabIndex = 6;
             this.addItemBtn.Text = "Add Item";
             this.addItemBtn.UseVisualStyleBackColor = true;
             this.addItemBtn.Click += new System.EventHandler(this.addItemBtn_Click);
@@ -117,14 +135,14 @@
             this.itemQuantity.Location = new System.Drawing.Point(132, 131);
             this.itemQuantity.Name = "itemQuantity";
             this.itemQuantity.Size = new System.Drawing.Size(121, 20);
-            this.itemQuantity.TabIndex = 11;
+            this.itemQuantity.TabIndex = 5;
             // 
             // itemNumber
             // 
             this.itemNumber.Location = new System.Drawing.Point(132, 61);
             this.itemNumber.Name = "itemNumber";
             this.itemNumber.Size = new System.Drawing.Size(121, 20);
-            this.itemNumber.TabIndex = 9;
+            this.itemNumber.TabIndex = 2;
             this.itemNumber.TextChanged += new System.EventHandler(this.itemNumber_TextChanged);
             // 
             // quantityLbl
@@ -170,6 +188,7 @@
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(102, 23);
             this.cancelBtn.TabIndex = 3;
+            this.cancelBtn.TabStop = false;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
@@ -180,7 +199,7 @@
             this.submitOrderBtn.Location = new System.Drawing.Point(143, 361);
             this.submitOrderBtn.Name = "submitOrderBtn";
             this.submitOrderBtn.Size = new System.Drawing.Size(102, 23);
-            this.submitOrderBtn.TabIndex = 2;
+            this.submitOrderBtn.TabIndex = 7;
             this.submitOrderBtn.Text = "Submit Order";
             this.submitOrderBtn.UseVisualStyleBackColor = true;
             this.submitOrderBtn.Click += new System.EventHandler(this.submitOrderBtn_Click);
@@ -199,27 +218,11 @@
             // 
             this.orderSummary.Location = new System.Drawing.Point(72, 55);
             this.orderSummary.MinimumSize = new System.Drawing.Size(400, 300);
+            this.orderSummary.Multiline = true;
             this.orderSummary.Name = "orderSummary";
-            this.orderSummary.Size = new System.Drawing.Size(400, 20);
+            this.orderSummary.Size = new System.Drawing.Size(400, 300);
             this.orderSummary.TabIndex = 0;
-            // 
-            // itemValidityMessage
-            // 
-            this.itemValidityMessage.AutoSize = true;
-            this.itemValidityMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.itemValidityMessage.Location = new System.Drawing.Point(18, 94);
-            this.itemValidityMessage.Name = "itemValidityMessage";
-            this.itemValidityMessage.Size = new System.Drawing.Size(101, 13);
-            this.itemValidityMessage.TabIndex = 15;
-            this.itemValidityMessage.Text = "Invalid Item Number";
-            this.itemValidityMessage.Visible = false;
-            // 
-            // jobCode
-            // 
-            this.jobCode.Location = new System.Drawing.Point(132, 30);
-            this.jobCode.Name = "jobCode";
-            this.jobCode.Size = new System.Drawing.Size(121, 20);
-            this.jobCode.TabIndex = 16;
+            this.orderSummary.TabStop = false;
             // 
             // NewOrder
             // 

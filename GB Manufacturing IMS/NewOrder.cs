@@ -61,12 +61,10 @@ namespace GB_Manufacturing_IMS
             if (num >= 0)
             {
                 string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
-<<<<<<< HEAD
+
                 string result = dbconn.getData(materialSearch);
                 description.Text = result;
-=======
-                mydb.runQuery(materialSearch);
->>>>>>> bd01173a12dec2e55fef18df47cdbead7d5fd752
+
                 // Search database for equipment
                 // If no match found, check material
                 // If no match found in either table, set visibility of itemValidityMsg to true
@@ -87,7 +85,7 @@ namespace GB_Manufacturing_IMS
         {
             tempOrderInfo[itemCount, 0] = itemNumber.Text;
             tempOrderInfo[itemCount, 1] = jobCode.Text;
-            tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database
+    //      tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database
             tempOrderInfo[itemCount, 3] = itemQuantity.Text;
 
             // Add item to an array and display in order preview
