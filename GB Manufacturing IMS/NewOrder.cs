@@ -20,7 +20,7 @@ namespace GB_Manufacturing_IMS
 {
     public partial class NewOrder : Form
     {
-        projectDB mydb = new projectDB();
+        projectDB dbconn = new projectDB();
 
         /*
          * 4-Dimensional array for storing order items temporarily
@@ -57,7 +57,6 @@ namespace GB_Manufacturing_IMS
             int num;
             num = Convert.ToInt32(itemNumber.Text);
 
-            projectDB dbconn = new projectDB();
             if (num >= 0)
             {
                 string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
