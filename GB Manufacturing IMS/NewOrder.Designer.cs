@@ -34,24 +34,20 @@
             this.addItemBtn = new System.Windows.Forms.Button();
             this.itemQuantity = new System.Windows.Forms.TextBox();
             this.itemNumber = new System.Windows.Forms.TextBox();
-            this.warehouseSelect = new System.Windows.Forms.ComboBox();
             this.quantityLbl = new System.Windows.Forms.Label();
             this.descriptionLbl = new System.Windows.Forms.Label();
             this.itemNumberLbl = new System.Windows.Forms.Label();
-            this.warehoulseLbl = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.seachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scanItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jobCodeLbl = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
             this.orderSummary = new System.Windows.Forms.TextBox();
             this.itemValidityMessage = new System.Windows.Forms.Label();
+            this.jobCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -62,18 +58,17 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.jobCode);
             this.splitContainer1.Panel1.Controls.Add(this.itemValidityMessage);
             this.splitContainer1.Panel1.Controls.Add(this.verifyBtn);
             this.splitContainer1.Panel1.Controls.Add(this.description);
             this.splitContainer1.Panel1.Controls.Add(this.addItemBtn);
             this.splitContainer1.Panel1.Controls.Add(this.itemQuantity);
             this.splitContainer1.Panel1.Controls.Add(this.itemNumber);
-            this.splitContainer1.Panel1.Controls.Add(this.warehouseSelect);
             this.splitContainer1.Panel1.Controls.Add(this.quantityLbl);
             this.splitContainer1.Panel1.Controls.Add(this.descriptionLbl);
             this.splitContainer1.Panel1.Controls.Add(this.itemNumberLbl);
-            this.splitContainer1.Panel1.Controls.Add(this.warehoulseLbl);
-            this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
+            this.splitContainer1.Panel1.Controls.Add(this.jobCodeLbl);
             // 
             // splitContainer1.Panel2
             // 
@@ -88,7 +83,7 @@
             // verifyBtn
             // 
             this.verifyBtn.Enabled = false;
-            this.verifyBtn.Location = new System.Drawing.Point(158, 98);
+            this.verifyBtn.Location = new System.Drawing.Point(158, 87);
             this.verifyBtn.Name = "verifyBtn";
             this.verifyBtn.Size = new System.Drawing.Size(75, 23);
             this.verifyBtn.TabIndex = 14;
@@ -99,7 +94,7 @@
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(33, 206);
+            this.description.Location = new System.Drawing.Point(33, 195);
             this.description.MinimumSize = new System.Drawing.Size(200, 70);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(200, 70);
@@ -109,7 +104,7 @@
             // addItemBtn
             // 
             this.addItemBtn.Enabled = false;
-            this.addItemBtn.Location = new System.Drawing.Point(85, 277);
+            this.addItemBtn.Location = new System.Drawing.Point(85, 266);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
             this.addItemBtn.TabIndex = 12;
@@ -119,34 +114,23 @@
             // 
             // itemQuantity
             // 
-            this.itemQuantity.Location = new System.Drawing.Point(132, 142);
+            this.itemQuantity.Location = new System.Drawing.Point(132, 131);
             this.itemQuantity.Name = "itemQuantity";
             this.itemQuantity.Size = new System.Drawing.Size(121, 20);
             this.itemQuantity.TabIndex = 11;
             // 
             // itemNumber
             // 
-            this.itemNumber.Location = new System.Drawing.Point(132, 72);
+            this.itemNumber.Location = new System.Drawing.Point(132, 61);
             this.itemNumber.Name = "itemNumber";
             this.itemNumber.Size = new System.Drawing.Size(121, 20);
             this.itemNumber.TabIndex = 9;
             this.itemNumber.TextChanged += new System.EventHandler(this.itemNumber_TextChanged);
             // 
-            // warehouseSelect
-            // 
-            this.warehouseSelect.FormattingEnabled = true;
-            this.warehouseSelect.Items.AddRange(new object[] {
-            "Warehouse 1",
-            "Warehouse 2"});
-            this.warehouseSelect.Location = new System.Drawing.Point(132, 40);
-            this.warehouseSelect.Name = "warehouseSelect";
-            this.warehouseSelect.Size = new System.Drawing.Size(121, 21);
-            this.warehouseSelect.TabIndex = 8;
-            // 
             // quantityLbl
             // 
             this.quantityLbl.AutoSize = true;
-            this.quantityLbl.Location = new System.Drawing.Point(17, 145);
+            this.quantityLbl.Location = new System.Drawing.Point(17, 134);
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(49, 13);
             this.quantityLbl.TabIndex = 7;
@@ -155,7 +139,7 @@
             // descriptionLbl
             // 
             this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(17, 181);
+            this.descriptionLbl.Location = new System.Drawing.Point(17, 170);
             this.descriptionLbl.Name = "descriptionLbl";
             this.descriptionLbl.Size = new System.Drawing.Size(63, 13);
             this.descriptionLbl.TabIndex = 6;
@@ -164,43 +148,20 @@
             // itemNumberLbl
             // 
             this.itemNumberLbl.AutoSize = true;
-            this.itemNumberLbl.Location = new System.Drawing.Point(17, 76);
+            this.itemNumberLbl.Location = new System.Drawing.Point(17, 65);
             this.itemNumberLbl.Name = "itemNumberLbl";
             this.itemNumberLbl.Size = new System.Drawing.Size(70, 13);
             this.itemNumberLbl.TabIndex = 5;
             this.itemNumberLbl.Text = "Item Number:";
             // 
-            // warehoulseLbl
+            // jobCodeLbl
             // 
-            this.warehoulseLbl.AutoSize = true;
-            this.warehoulseLbl.Location = new System.Drawing.Point(17, 44);
-            this.warehoulseLbl.Name = "warehoulseLbl";
-            this.warehoulseLbl.Size = new System.Drawing.Size(65, 13);
-            this.warehoulseLbl.TabIndex = 4;
-            this.warehoulseLbl.Text = "Warehouse:";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seachToolStripMenuItem,
-            this.scanItemToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(266, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // seachToolStripMenuItem
-            // 
-            this.seachToolStripMenuItem.Name = "seachToolStripMenuItem";
-            this.seachToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.seachToolStripMenuItem.Text = "Seach";
-            // 
-            // scanItemToolStripMenuItem
-            // 
-            this.scanItemToolStripMenuItem.Name = "scanItemToolStripMenuItem";
-            this.scanItemToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.scanItemToolStripMenuItem.Text = "Scan Item";
+            this.jobCodeLbl.AutoSize = true;
+            this.jobCodeLbl.Location = new System.Drawing.Point(17, 33);
+            this.jobCodeLbl.Name = "jobCodeLbl";
+            this.jobCodeLbl.Size = new System.Drawing.Size(55, 13);
+            this.jobCodeLbl.TabIndex = 4;
+            this.jobCodeLbl.Text = "Job Code:";
             // 
             // cancelBtn
             // 
@@ -246,12 +207,19 @@
             // 
             this.itemValidityMessage.AutoSize = true;
             this.itemValidityMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.itemValidityMessage.Location = new System.Drawing.Point(18, 105);
+            this.itemValidityMessage.Location = new System.Drawing.Point(18, 94);
             this.itemValidityMessage.Name = "itemValidityMessage";
             this.itemValidityMessage.Size = new System.Drawing.Size(101, 13);
             this.itemValidityMessage.TabIndex = 15;
             this.itemValidityMessage.Text = "Invalid Item Number";
             this.itemValidityMessage.Visible = false;
+            // 
+            // jobCode
+            // 
+            this.jobCode.Location = new System.Drawing.Point(132, 30);
+            this.jobCode.Name = "jobCode";
+            this.jobCode.Size = new System.Drawing.Size(121, 20);
+            this.jobCode.TabIndex = 16;
             // 
             // NewOrder
             // 
@@ -260,7 +228,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewOrder";
@@ -275,8 +242,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -287,14 +252,10 @@
         private System.Windows.Forms.Label quantityLbl;
         private System.Windows.Forms.Label descriptionLbl;
         private System.Windows.Forms.Label itemNumberLbl;
-        private System.Windows.Forms.Label warehoulseLbl;
+        private System.Windows.Forms.Label jobCodeLbl;
         private System.Windows.Forms.Label orderContentsLbl;
         private System.Windows.Forms.TextBox orderSummary;
         private System.Windows.Forms.TextBox itemNumber;
-        private System.Windows.Forms.ComboBox warehouseSelect;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem seachToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem scanItemToolStripMenuItem;
         private System.Windows.Forms.Button addItemBtn;
         private System.Windows.Forms.TextBox itemQuantity;
         private System.Windows.Forms.Button cancelBtn;
@@ -302,5 +263,6 @@
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.Button verifyBtn;
         private System.Windows.Forms.Label itemValidityMessage;
+        private System.Windows.Forms.TextBox jobCode;
     }
 }

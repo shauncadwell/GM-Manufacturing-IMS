@@ -21,6 +21,13 @@ namespace GB_Manufacturing_IMS
     public partial class NewOrder : Form
     {
         projectDB mydb = new projectDB();
+        /*
+         * 4-Dimensional array for storing order items temporarily
+         * itemNumber | jobCode | description | quantity
+         * ******************************/
+        string[,] tempOrderInfo;
+
+        int itemCount = 0;                            // Tracks the number of items ordered. Used for array placement
 
         public NewOrder()
         {
@@ -48,7 +55,6 @@ namespace GB_Manufacturing_IMS
 
             if (match)
             {
-                string equipmentSearch = "SELECT description FROM Equipment WHERE equipmentID = '" + itemNumber.Text + "' LIMIT 1";
                 string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
 
                 // Search database for equipment
@@ -58,11 +64,22 @@ namespace GB_Manufacturing_IMS
                 // Set quantity to 1
                 // Enable add button
             }
-            
+            else
+            {
+                // Display error if item number contains non numeric data
+                MessageBox.Show("Invalid item number. The item number must contain only numbers.", "Invalid Item", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                itemValidityMessage.Text = "Invalid Item Number";
+                itemValidityMessage.Visible = true;
+            }
         }
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
+            tempOrderInfo[itemCount, 0] = itemNumber.Text;
+            tempOrderInfo[itemCount, 1] = jobCode.Text;
+            //tempOrderInfo[itemCount, 2] = itemDescription;          // Retrieved from database
+            tempOrderInfo[itemCount, 3] = itemQuantity.Text;
+
             // Add item to an array and display in order preview
             // Verify quantity is numeric and between 1 and 100
         }
