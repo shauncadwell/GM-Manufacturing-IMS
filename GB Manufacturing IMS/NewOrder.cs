@@ -27,7 +27,8 @@ namespace GB_Manufacturing_IMS
          * ******************************/
         string[,] tempOrderInfo;
 
-        int itemCount = 0;                            // Tracks the number of items ordered. Used for array placement
+        int itemCount = 0;      // Tracks the number of items ordered. Used for array placement
+        string findMaxIDQuery = "SELECT MAX(orderID) FROM MaterialOrder LIMIT 1";
 
         public NewOrder()
         {
