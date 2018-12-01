@@ -13,8 +13,7 @@ namespace GB_Manufacturing_IMS
 {
     class projectDB
     {
-        int row = 0;
-        int col = 0;
+
         string dbconn = "Server=104.248.117.10; Database=CEIS400;Uid=CEIS400;Pwd=group5;";
 
        public void fill(DataGridView dgv, string cmd, bool needCart)
