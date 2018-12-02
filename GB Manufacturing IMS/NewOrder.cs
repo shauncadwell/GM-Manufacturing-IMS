@@ -76,12 +76,6 @@ namespace GB_Manufacturing_IMS
                     itemValidityMessage.ForeColor = successColor;
                     addItemBtn.Enabled = true;
                 }
-                // Search database for equipment
-                // If no match found, check material
-                // If no match found in either table, set visibility of itemValidityMsg to true
-                // If match found, display description and set text of itemValidityMsg to "Valid item" and change color to blue
-                // Set quantity to 1
-                // Enable add button
             }
             else
             {
@@ -142,8 +136,8 @@ namespace GB_Manufacturing_IMS
             {
                 string insertQuery = "INSERT INTO MaterialOrder (orderID, orderDate, itemID, quantity, employeeID, jobCode) " +
                                     "VALUES("+ orderID +", CURDATE(), "+ item.itemNumber +", "+ item.quantity +", "+ employeeID +", "+ item.jobCode +")";
-                MessageBox.Show(insertQuery + "\n Order ID:" + orderID, "Query", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                bool querySuccess = dbconn.runQuery(insertQuery);
+                
+                bool querySuccess = dbconn.runQuery(insertQuery); // Error here - runQuery always returns true but insert is failing
 
                 if (!querySuccess)
                 {

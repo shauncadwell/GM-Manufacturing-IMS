@@ -15,7 +15,7 @@ namespace GB_Manufacturing_IMS
 
         public string displayEntry()
         {
-            return "Item Number: " + itemNumber + "\t Description: " + description + "\t Quantity: " + quantity + "\n";
+            return "Item Number: " + itemNumber + "\t Description: " + description + "\t Quantity: " + quantity + Environment.NewLine;
         }
 
         public override bool Equals(object obj)
