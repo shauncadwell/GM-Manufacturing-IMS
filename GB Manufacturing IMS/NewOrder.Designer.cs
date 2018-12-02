@@ -117,7 +117,7 @@
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(200, 70);
             this.description.TabIndex = 13;
-            this.description.Text = "Enter item number to see description";
+            this.description.Text = "Enter item number to see description.";
             // 
             // addItemBtn
             // 
@@ -216,11 +216,11 @@
             // 
             // orderSummary
             // 
-            this.orderSummary.Location = new System.Drawing.Point(72, 55);
+            this.orderSummary.Location = new System.Drawing.Point(37, 55);
             this.orderSummary.MinimumSize = new System.Drawing.Size(400, 300);
             this.orderSummary.Multiline = true;
             this.orderSummary.Name = "orderSummary";
-            this.orderSummary.Size = new System.Drawing.Size(400, 300);
+            this.orderSummary.Size = new System.Drawing.Size(450, 300);
             this.orderSummary.TabIndex = 0;
             this.orderSummary.TabStop = false;
             // 

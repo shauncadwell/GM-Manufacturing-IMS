@@ -71,7 +71,7 @@ namespace GB_Manufacturing_IMS
             }
             catch
             {
-                MessageBox.Show("No result found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // MessageBox.Show("No result found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 data = "";
             }
             conn.Close();
