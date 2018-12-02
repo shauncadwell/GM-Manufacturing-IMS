@@ -20,15 +20,15 @@ namespace GB_Manufacturing_IMS
 {
     public partial class NewOrder : Form
     {
-        projectDB dbconn = new projectDB();
-        Color successColor = System.Drawing.Color.Blue;
-        Color errorColor = System.Drawing.Color.DarkRed;
+        private projectDB dbconn = new projectDB();
+        private Color successColor = System.Drawing.Color.Blue;
+        private Color errorColor = System.Drawing.Color.DarkRed;
 
         /* List to store itemNumber, jobCode, description, and quantity
          * Uses TempOrderInfo.cs
          * Reference: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2
          * ************************************************************/
-        List<TempOrderInfo> orderInfo = new List<TempOrderInfo>();
+        private List<TempOrderInfo> orderInfo = new List<TempOrderInfo>();
 
         public NewOrder()
         {
