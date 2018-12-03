@@ -93,6 +93,7 @@ namespace GB_Manufacturing_IMS
             string getDescriptionQuery = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
             string itemDescription = dbconn.getData(getDescriptionQuery);
 
+            // Adds new order item to list
             orderInfo.Add(new TempOrderInfo()
             {
                 itemNumber = Convert.ToInt32(itemNumber.Text),
