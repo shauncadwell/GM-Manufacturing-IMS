@@ -21,7 +21,7 @@ namespace GB_Manufacturing_IMS
         {
             projectDB mydb = new projectDB();
             string sqlcmd = "SELECT * FROM Equipment";
-            mydb.fill(dataGridView1, sqlcmd, true);
+            mydb.fill(dataGridView1, sqlcmd);
         }
 
         private void label1_Click(object sender, EventArgs e)

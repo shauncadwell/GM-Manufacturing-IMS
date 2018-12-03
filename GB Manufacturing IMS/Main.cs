@@ -44,8 +44,6 @@ namespace GB_Manufacturing_IMS
         private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
                 f.createWindow("Inventory", this, InventoryWindow, false);
-  
-     
         }
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)

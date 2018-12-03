@@ -16,8 +16,9 @@ namespace GB_Manufacturing_IMS
 
         string dbconn = "Server=104.248.117.10; Database=CEIS400;Uid=CEIS400;Pwd=group5;";
 
-       public void fill(DataGridView dgv, string cmd, bool needCart)
+       public void fill(DataGridView dgv, string query)
         {
+            /* This function takes a targetted datagridview and sql query and submits results into the DGV. */
 
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
@@ -25,7 +26,7 @@ namespace GB_Manufacturing_IMS
 
             //Store data from database
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-            dataAdapter.SelectCommand = new MySqlCommand(cmd, conn);
+            dataAdapter.SelectCommand = new MySqlCommand(query, conn);
 
             //Store data from adapter to table
             DataTable table = new DataTable();
@@ -42,25 +43,21 @@ namespace GB_Manufacturing_IMS
 
         public bool runQuery(string cmd)
         {
-            //Establish connection to database
-            MySqlConnection conn = new MySqlConnection(dbconn);
-            conn.Open();
+            /* Function takes MySQL Query and manipulates database and will return success */
 
-            //Store data from database
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-            dataAdapter.SelectCommand = new MySqlCommand(cmd, conn);
-            conn.Close();
-            return true;    
+            return true;
         }
 
-        public string getData(string cmd)
+        public string getData(string query)
         {
+            /*Function takes query and returns data as a string.*/
+
             string data;
             //Establish connection to database
             MySqlConnection conn = new MySqlConnection(dbconn);
         try
             {
-                MySqlCommand myCommand = new MySqlCommand(cmd, conn);
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
                 conn.Open();
                 MySqlDataReader myReader;
       
@@ -72,12 +69,10 @@ namespace GB_Manufacturing_IMS
             catch
             {
                 // MessageBox.Show("No result found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                data = "";
+                data = null;
             }
             conn.Close();
             return data;
-
-
         }
 
         
