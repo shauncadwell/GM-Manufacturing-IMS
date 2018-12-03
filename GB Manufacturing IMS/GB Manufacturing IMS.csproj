@@ -76,7 +76,6 @@
     <Compile Include="NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="TempOrderInfo.cs" />
     <Compile Include="user.cs" />
     <Compile Include="userLogin.cs">
       <SubType>Form</SubType>
