@@ -12,7 +12,7 @@ namespace GB_Manufacturing_IMS
     class appForm
     {
         //createWindow to show new form. 
-        public void createWindow(string name, Form currentForm, Form targetForm, bool isDiag)
+        public void createWindow(string name, Form currentForm, Form targetForm, bool isDiag, bool isChild)
     {
         bool isOpen = false;
         foreach (Form f in Application.OpenForms)
@@ -22,8 +22,6 @@ namespace GB_Manufacturing_IMS
                 isOpen = true;
                 f.Focus();
                 break;
-                    //comment to force change
-                    // Kyle was here
             }
         }
         if (isOpen == false) 
@@ -34,10 +32,19 @@ namespace GB_Manufacturing_IMS
                 }
             else
                 {
-                    targetForm.MdiParent = currentForm;
+                    if (isChild)
+                    {
+                        targetForm.MdiParent = currentForm.MdiParent;
+                    }
+                    else
+                    {
+                        targetForm.MdiParent = currentForm;
+                    }
                     targetForm.Dock = DockStyle.Fill;
                     targetForm.WindowState = FormWindowState.Maximized;
-              
+                    targetForm.ControlBox = false;
+                    targetForm.FormBorderStyle = FormBorderStyle.None;
+                    targetForm.Focus();
                     targetForm.Show();
                 }
          

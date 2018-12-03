@@ -19,8 +19,10 @@ namespace GB_Manufacturing_IMS
         appForm f = new appForm();
 
         //App form objects will need to be created for each forum. 
-        Inventory InventoryWindow = new Inventory();
+       
+        SearchInventory InventoryWindow = new SearchInventory();
         login loginWindow = new login();
+        Intro startup = new Intro();
         NewOrder newOrder = new NewOrder();
 
         // Comment is awesome + 1
@@ -30,30 +32,27 @@ namespace GB_Manufacturing_IMS
             InitializeComponent();
         }
 
-        private void openForm2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-    
-        }
 
         private void Main_Load(object sender, EventArgs e)
         {
-        //Load login dialog
-            f.createWindow("login", this, loginWindow, true);
+            //Load login dialog
+            f.createWindow("Startup", this, startup, false, false);
+            f.createWindow("login", this, loginWindow, true, false);
         }
 
         private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                f.createWindow("Inventory", this, InventoryWindow, false);
+                f.createWindow("Inventory", this, InventoryWindow, false, false);
         }
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //not yet implemented.
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
+            //not yet implemented.
         }
 
         private void closeAllFormsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,14 +61,14 @@ namespace GB_Manufacturing_IMS
             //CLOSE ALL WINDOWS
             InventoryWindow.Hide();
             //Show login page
-            f.createWindow("Login", this, loginWindow, true);
+            f.createWindow("Login", this, loginWindow, true, false);
 
         }
 
         private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             //Create new order
-            f.createWindow("New Order", this, newOrder, false);
+            f.createWindow("New Order", this, newOrder, false, false);
         }
     }
 }
