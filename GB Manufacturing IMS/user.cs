@@ -22,11 +22,26 @@ namespace GB_Manufacturing_IMS
             lName = ulname;
             status = ustatus;
         }
-
+         
         public string getFullName() { return fName + " " + lName; }
         public string getfName() { return fName; }
         public string getStatus() { return status; }
         public int getRank() { return rank; }
         public int getID() { return id; }
+
+        public void update()
+        {
+            //Use ProjectDB to update using runquery function
+        }
+
+        public void add()
+        {
+            //Use ProjectDB to add into database using runquery function
+        }
+
+        public void remove()
+        {
+            //Use ProjectDB to remove from database using runquery function
+        }
     }
 }
