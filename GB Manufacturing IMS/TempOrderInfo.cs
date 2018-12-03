@@ -13,6 +13,7 @@ namespace GB_Manufacturing_IMS
         public string description { get; set; }
         public int quantity { get; set; }
 
+        // Displays list item
         public string displayEntry()
         {
             return "Item Number: " + itemNumber + "\t Description: " + description + "\t Quantity: " + quantity + Environment.NewLine;
