@@ -44,6 +44,7 @@
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
             this.orderSummary = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnBack);
             this.splitContainer1.Panel1.Controls.Add(this.jobCode);
             this.splitContainer1.Panel1.Controls.Add(this.itemValidityMessage);
             this.splitContainer1.Panel1.Controls.Add(this.verifyBtn);
@@ -82,7 +84,7 @@
             // 
             // jobCode
             // 
-            this.jobCode.Location = new System.Drawing.Point(132, 30);
+            this.jobCode.Location = new System.Drawing.Point(137, 55);
             this.jobCode.Name = "jobCode";
             this.jobCode.Size = new System.Drawing.Size(121, 20);
             this.jobCode.TabIndex = 1;
@@ -91,7 +93,7 @@
             // 
             this.itemValidityMessage.AutoSize = true;
             this.itemValidityMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.itemValidityMessage.Location = new System.Drawing.Point(18, 94);
+            this.itemValidityMessage.Location = new System.Drawing.Point(23, 119);
             this.itemValidityMessage.Name = "itemValidityMessage";
             this.itemValidityMessage.Size = new System.Drawing.Size(101, 13);
             this.itemValidityMessage.TabIndex = 15;
@@ -101,7 +103,7 @@
             // verifyBtn
             // 
             this.verifyBtn.Enabled = false;
-            this.verifyBtn.Location = new System.Drawing.Point(158, 87);
+            this.verifyBtn.Location = new System.Drawing.Point(163, 112);
             this.verifyBtn.Name = "verifyBtn";
             this.verifyBtn.Size = new System.Drawing.Size(75, 23);
             this.verifyBtn.TabIndex = 3;
@@ -112,7 +114,7 @@
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(33, 195);
+            this.description.Location = new System.Drawing.Point(38, 220);
             this.description.MinimumSize = new System.Drawing.Size(200, 70);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(200, 70);
@@ -122,7 +124,7 @@
             // addItemBtn
             // 
             this.addItemBtn.Enabled = false;
-            this.addItemBtn.Location = new System.Drawing.Point(85, 266);
+            this.addItemBtn.Location = new System.Drawing.Point(90, 291);
             this.addItemBtn.Name = "addItemBtn";
             this.addItemBtn.Size = new System.Drawing.Size(75, 23);
             this.addItemBtn.TabIndex = 6;
@@ -132,14 +134,14 @@
             // 
             // itemQuantity
             // 
-            this.itemQuantity.Location = new System.Drawing.Point(132, 131);
+            this.itemQuantity.Location = new System.Drawing.Point(137, 156);
             this.itemQuantity.Name = "itemQuantity";
             this.itemQuantity.Size = new System.Drawing.Size(121, 20);
             this.itemQuantity.TabIndex = 5;
             // 
             // itemNumber
             // 
-            this.itemNumber.Location = new System.Drawing.Point(132, 61);
+            this.itemNumber.Location = new System.Drawing.Point(137, 86);
             this.itemNumber.Name = "itemNumber";
             this.itemNumber.Size = new System.Drawing.Size(121, 20);
             this.itemNumber.TabIndex = 2;
@@ -148,7 +150,7 @@
             // quantityLbl
             // 
             this.quantityLbl.AutoSize = true;
-            this.quantityLbl.Location = new System.Drawing.Point(17, 134);
+            this.quantityLbl.Location = new System.Drawing.Point(22, 159);
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(49, 13);
             this.quantityLbl.TabIndex = 7;
@@ -157,7 +159,7 @@
             // descriptionLbl
             // 
             this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(17, 170);
+            this.descriptionLbl.Location = new System.Drawing.Point(22, 195);
             this.descriptionLbl.Name = "descriptionLbl";
             this.descriptionLbl.Size = new System.Drawing.Size(63, 13);
             this.descriptionLbl.TabIndex = 6;
@@ -166,7 +168,7 @@
             // itemNumberLbl
             // 
             this.itemNumberLbl.AutoSize = true;
-            this.itemNumberLbl.Location = new System.Drawing.Point(17, 65);
+            this.itemNumberLbl.Location = new System.Drawing.Point(22, 90);
             this.itemNumberLbl.Name = "itemNumberLbl";
             this.itemNumberLbl.Size = new System.Drawing.Size(70, 13);
             this.itemNumberLbl.TabIndex = 5;
@@ -175,7 +177,7 @@
             // jobCodeLbl
             // 
             this.jobCodeLbl.AutoSize = true;
-            this.jobCodeLbl.Location = new System.Drawing.Point(17, 33);
+            this.jobCodeLbl.Location = new System.Drawing.Point(22, 58);
             this.jobCodeLbl.Name = "jobCodeLbl";
             this.jobCodeLbl.Size = new System.Drawing.Size(55, 13);
             this.jobCodeLbl.TabIndex = 4;
@@ -224,6 +226,16 @@
             this.orderSummary.TabIndex = 0;
             this.orderSummary.TabStop = false;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(131, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(127, 23);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "Back to Main Menu";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,5 +279,6 @@
         private System.Windows.Forms.Button verifyBtn;
         private System.Windows.Forms.Label itemValidityMessage;
         private System.Windows.Forms.TextBox jobCode;
+        private System.Windows.Forms.Button btnBack;
     }
 }
