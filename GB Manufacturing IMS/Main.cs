@@ -30,10 +30,6 @@ namespace GB_Manufacturing_IMS
             InitializeComponent();
         }
 
-        private void openForm2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-    
-        }
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -48,12 +44,12 @@ namespace GB_Manufacturing_IMS
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //not yet implemented.
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
+            //not yet implemented.
         }
 
         private void closeAllFormsToolStripMenuItem_Click(object sender, EventArgs e)

@@ -26,12 +26,12 @@ namespace GB_Manufacturing_IMS
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            //Not needed.
         }
 
         private void btnSubimit(object sender, EventArgs e)
         {
-
+            //Submit search
         }
     }
 }
