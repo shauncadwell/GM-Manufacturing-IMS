@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addInventory.Designer.cs">
+      <DependentUpon>addInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="appForm.cs" />
     <Compile Include="Intro.cs">
       <SubType>Form</SubType>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderEquipment.Designer.cs">
+      <DependentUpon>OrderEquipment.cs</DependentUpon>
     </Compile>
     <Compile Include="TempOrderInfo.cs" />
     <Compile Include="user.cs" />
@@ -105,11 +117,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addInventory.resx">
+      <DependentUpon>addInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Intro.resx">
       <DependentUpon>Intro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderEquipment.resx">
+      <DependentUpon>OrderEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userLogin.resx">
       <DependentUpon>userLogin.cs</DependentUpon>

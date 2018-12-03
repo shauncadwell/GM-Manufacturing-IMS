@@ -13,70 +13,204 @@ namespace GB_Manufacturing_IMS
 {
     class projectDB
     {
+        private MySqlConnection connection;
+        private string server;
+        private string database;
+        private string uid;
+        private string password;
 
-        string dbconn = "Server=104.248.117.10; Database=CEIS400;Uid=CEIS400;Pwd=group5;";
+        public projectDB()
+        {
+            Initialize();
+        }
 
+        private void Initialize()
+        {
+            server = "104.248.117.10";
+            database = "CEIS400";
+            uid = "CEIS400";
+            password = "group5";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connection = new MySqlConnection(connectionString);
+        }
+
+        //open connection to db
+        private bool OpenConnection()
+        {
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                //When handling errors, you can your application's response based 
+                //on the error number.
+                //The two most common error numbers when connecting are as follows:
+                //0: Cannot connect to server.
+                //1045: Invalid user name and/or password.
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                }
+                return false;
+            }
+        }
+
+        //Close connection
+        private bool CloseConnection()
+        {
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        //Insert statement
+        public bool Insert(string query)
+        {
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //create command and assign the query and connection from the constructor
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+
+                    //close connection
+                    this.CloseConnection();
+                    return true;
+                }
+                catch
+                {
+                    this.CloseConnection();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        //Update statement
+        public void Update(string query)
+        {
+            try
+            {
+                //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+
+                    //close connection
+                    this.CloseConnection();
+                }
+            }
+            catch
+            {
+                this.CloseConnection();
+            }
+
+        }
+    
+        //Delete statement
+        public void Delete(string query)
+        {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
        public void fill(DataGridView dgv, string query)
         {
             /* This function takes a targetted datagridview and sql query and submits results into the DGV. */
+          try
+            {
+             //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    //Store data from database
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                    dataAdapter.SelectCommand = new MySqlCommand(query, connection);
 
-            //Establish connection to database
-            MySqlConnection conn = new MySqlConnection(dbconn);
-            conn.Open();
+                    //Store data from adapter to table
+                    DataTable table = new DataTable();
+                    dataAdapter.Fill(table);
 
-            //Store data from database
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-            dataAdapter.SelectCommand = new MySqlCommand(query, conn);
+                    //Store in binding source
+                    BindingSource bSource = new BindingSource();
+                    bSource.DataSource = table;
 
-            //Store data from adapter to table
-            DataTable table = new DataTable();
-            dataAdapter.Fill(table);
-
-            //Store in binding source
-            BindingSource bSource = new BindingSource();
-            bSource.DataSource = table;
-
-            //display on correct datagridview
-            dgv.DataSource = bSource;
-            conn.Close();
-        }
-
-        public bool runQuery(string cmd)
-        {
-            /* Function takes MySQL Query and manipulates database and will return success */
-
-            return true;
+                    //display on correct datagridview
+                    dgv.DataSource = bSource;
+                    this.connection.Close();
+                }
+            }
+            catch
+            {
+                this.CloseConnection();
+            }
+   
+                   
         }
 
         public string getData(string query)
         {
-            /*Function takes query and returns data as a string.*/
 
             string data;
-            //Establish connection to database
-            MySqlConnection conn = new MySqlConnection(dbconn);
-        try
+            if (this.OpenConnection() == true)
             {
-                MySqlCommand myCommand = new MySqlCommand(query, conn);
-                conn.Open();
-                MySqlDataReader myReader;
+                try
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    data = cmd.ExecuteScalar().ToString();
+
+                    //close connection
+                    this.CloseConnection();
+                    return data;
+                 }
+                catch
+                {
+                    this.CloseConnection();
+                    return null; 
+                }
+              
+            }
       
-                myReader = myCommand.ExecuteReader();
-                myReader.Read();
-                //Store data from database
-                data = myReader.GetString(0);
-            }
-            catch
-            {
-                // MessageBox.Show("No result found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                data = null;
-            }
-            conn.Close();
-            return data;
+            return null;
         }
-
-        
-
-
     }
 }

@@ -24,6 +24,7 @@ namespace GB_Manufacturing_IMS
         login loginWindow = new login();
         Intro startup = new Intro();
         NewOrder newOrder = new NewOrder();
+        addInventory invControl = new addInventory();
 
         // Comment is awesome + 1
 
@@ -69,6 +70,11 @@ namespace GB_Manufacturing_IMS
         {
             //Create new order
             f.createWindow("New Order", this, newOrder, false, false);
+        }
+
+        private void enterInventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            f.createWindow("enterInventory", this, invControl, false, false);
         }
     }
 }

@@ -13,7 +13,8 @@ namespace GB_Manufacturing_IMS
     public partial class Intro : Form
     {
         appForm f = new appForm();
-        NewOrder order = new NewOrder();
+        NewOrder orderMaterials = new NewOrder();
+        OrderEquipment orderEquipment = new OrderEquipment();
         SearchInventory search = new SearchInventory();
 
         public Intro()
@@ -28,12 +29,12 @@ namespace GB_Manufacturing_IMS
 
         private void btnOrderMaterials_Click(object sender, EventArgs e)
         {
-            f.createWindow("Order Form", this, order, false, true);
+            f.createWindow("Order Form", this, orderMaterials, false, true);
         }
 
         private void btnOrderEquipment_Click(object sender, EventArgs e)
         {
-            f.createWindow("Order Form", this, order, false, true);
+            f.createWindow("Order Equipment", this, orderEquipment, false, true);
         }
 
         private void btnSearchInv_Click(object sender, EventArgs e)

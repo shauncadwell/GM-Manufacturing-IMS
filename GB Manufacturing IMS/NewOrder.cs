@@ -138,7 +138,7 @@ namespace GB_Manufacturing_IMS
                 string insertQuery = "INSERT INTO MaterialOrder (orderID, orderDate, itemID, quantity, employeeID, jobCode) " +
                                     "VALUES("+ orderID +", CURDATE(), "+ item.itemNumber +", "+ item.quantity +", "+ employeeID +", "+ item.jobCode +")";
                 
-                bool querySuccess = dbconn.runQuery(insertQuery); // Error here - runQuery always returns true but insert is failing
+                bool querySuccess = dbconn.Insert(insertQuery); // Error here - runQuery always returns true but insert is failing
 
                 if (!querySuccess)
                 {
@@ -173,6 +173,11 @@ namespace GB_Manufacturing_IMS
 
             // Delete items list
             orderInfo.Clear();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

@@ -42,26 +42,34 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(83, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Employee ID";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(83, 34);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtEmpID
             // 
-            this.txtEmpID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmpID.Location = new System.Drawing.Point(92, 3);
+            this.txtEmpID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmpID.Location = new System.Drawing.Point(92, 7);
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.Size = new System.Drawing.Size(185, 20);
             this.txtEmpID.TabIndex = 0;
@@ -74,10 +82,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.86703F));
             this.tableLayoutPanel1.Controls.Add(this.btnQuit, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtEmpID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtPW, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtEmpID, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(231, 156);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -115,8 +123,8 @@
             // 
             // txtPW
             // 
-            this.txtPW.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPW.Location = new System.Drawing.Point(92, 37);
+            this.txtPW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPW.Location = new System.Drawing.Point(92, 41);
             this.txtPW.Name = "txtPW";
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(185, 20);
