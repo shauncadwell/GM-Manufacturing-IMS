@@ -14,12 +14,14 @@ namespace GB_Manufacturing_IMS
     {
         appForm f = new appForm();
         NewOrder orderMaterials = new NewOrder();
-        OrderEquipment orderEquipment = new OrderEquipment();
-        SearchInventory search = new SearchInventory();
 
-        public Intro()
+
+        user currentUser = new user();
+
+        public Intro(user clone)
         {
             InitializeComponent();
+            currentUser = clone;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -34,12 +36,19 @@ namespace GB_Manufacturing_IMS
 
         private void btnOrderEquipment_Click(object sender, EventArgs e)
         {
+            OrderEquipment orderEquipment = new OrderEquipment(currentUser);
             f.createWindow("Order Equipment", this, orderEquipment, true, true);
         }
 
         private void btnSearchInv_Click(object sender, EventArgs e)
         {
+            SearchInventory search = new SearchInventory(currentUser);
             f.createWindow("Inventory", this, search, true, true);
+        }
+
+        private void Intro_Load(object sender, EventArgs e)
+        {
+            //testing cross object from main form;
         }
     }
 }

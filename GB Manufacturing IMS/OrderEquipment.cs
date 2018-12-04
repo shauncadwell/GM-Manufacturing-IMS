@@ -13,10 +13,12 @@ namespace GB_Manufacturing_IMS
     public partial class OrderEquipment : Form
     {
         projectDB db = new projectDB();
+        user currentUser = new user();
 
-        public OrderEquipment()
+        public OrderEquipment(user clone)
         {
             InitializeComponent();
+            currentUser = clone;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -27,7 +29,6 @@ namespace GB_Manufacturing_IMS
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //Verify item and quantity are available in database and required rank
-
             string query = "SELECT count(*) FROM information_schema.columns WHERE table_name = 'Equipment'";
             int colCount = Convert.ToInt32(db.getData(query));
             DataGridViewLinkColumn link = new DataGridViewLinkColumn();

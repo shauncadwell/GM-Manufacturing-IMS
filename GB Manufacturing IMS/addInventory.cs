@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace GB_Manufacturing_IMS
 {
-  
+   
     public partial class addInventory : Form
     {
         projectDB db = new projectDB();
-        public addInventory()
+        public user currentUser = new user();
+        public addInventory(user clone)
         {
             InitializeComponent();
+            currentUser = clone;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

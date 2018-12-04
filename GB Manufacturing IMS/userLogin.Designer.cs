@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmpID = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnQuit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.txtPW = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblError = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,10 +83,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.13297F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.86703F));
+            this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnQuit, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtPW, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmpID, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(231, 156);
@@ -95,6 +98,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 133);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogin.Location = new System.Drawing.Point(92, 71);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(185, 27);
+            this.btnLogin.TabIndex = 9;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnQuit
             // 
@@ -108,18 +122,6 @@
             this.btnQuit.Text = "Exit";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLogin.Location = new System.Drawing.Point(92, 71);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(185, 27);
-            this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtPW
             // 
@@ -136,9 +138,9 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(291, 40);
+            this.label3.Size = new System.Drawing.Size(283, 40);
             this.label3.TabIndex = 5;
-            this.label3.Text = "GM Manufacturing";
+            this.label3.Text = "GB Manufacturing";
             // 
             // label4
             // 
@@ -151,6 +153,22 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Inventory Management System";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(250, 140);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(246, 13);
+            this.lblError.TabIndex = 8;
+            this.lblError.Text = "Invalid Employee ID or Password. Please try again.";
+            this.lblError.Visible = false;
+            // 
             // login
             // 
             this.AcceptButton = this.btnLogin;
@@ -160,6 +178,7 @@
             this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -183,10 +202,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmpID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.TextBox txtPW;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

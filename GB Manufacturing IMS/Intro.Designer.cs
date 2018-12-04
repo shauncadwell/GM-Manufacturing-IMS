@@ -91,7 +91,7 @@
             this.pnltopBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnltopBar.Controls.Add(this.lblTitle);
             this.pnltopBar.Location = new System.Drawing.Point(-5, 0);
-            this.pnltopBar.MinimumSize = new System.Drawing.Size(100, 0);
+            this.pnltopBar.MinimumSize = new System.Drawing.Size(100, 2);
             this.pnltopBar.Name = "pnltopBar";
             this.pnltopBar.Size = new System.Drawing.Size(1101, 110);
             this.pnltopBar.TabIndex = 4;
@@ -126,6 +126,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Startup";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Intro_Load);
             this.pnltopBar.ResumeLayout(false);
             this.pnltopBar.PerformLayout();
             this.ResumeLayout(false);

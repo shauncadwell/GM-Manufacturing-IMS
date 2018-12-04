@@ -16,7 +16,7 @@ namespace GB_Manufacturing_IMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new login());
         }
     }
 }

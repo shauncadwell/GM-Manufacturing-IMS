@@ -22,9 +22,16 @@ namespace GB_Manufacturing_IMS
             lName = ulname;
             status = ustatus;
         }
-         
+        //setters
+        public void setFname(string f) { fName = f; }
+        public void setLname(string f) { lName = f; }
+        public void setID(int f) { id = f; }
+        public void setRank(int f) { rank = f; }
+        public void setStatus(string f) { status = f; }
+        //getters
         public string getFullName() { return fName + " " + lName; }
         public string getfName() { return fName; }
+        public string getlName() { return lName; }
         public string getStatus() { return status; }
         public int getRank() { return rank; }
         public int getID() { return id; }

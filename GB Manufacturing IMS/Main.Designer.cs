@@ -36,10 +36,12 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.receivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -82,7 +84,7 @@
             // adminToolsToolStripMenuItem
             // 
             this.adminToolsToolStripMenuItem.Name = "adminToolsToolStripMenuItem";
-            this.adminToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adminToolsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.adminToolsToolStripMenuItem.Text = "Manage Users";
             this.adminToolsToolStripMenuItem.Click += new System.EventHandler(this.adminToolsToolStripMenuItem_Click);
             // 
@@ -92,7 +94,7 @@
             this.inventoryReportToolStripMenuItem,
             this.userReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // inventoryReportToolStripMenuItem
@@ -107,14 +109,6 @@
             this.userReportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.userReportToolStripMenuItem.Text = "User Report";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 390);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1002, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // receivingToolStripMenuItem
             // 
             this.receivingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -126,9 +120,25 @@
             // enterInventoryToolStripMenuItem
             // 
             this.enterInventoryToolStripMenuItem.Name = "enterInventoryToolStripMenuItem";
-            this.enterInventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enterInventoryToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.enterInventoryToolStripMenuItem.Text = "Inventory Control";
             this.enterInventoryToolStripMenuItem.Click += new System.EventHandler(this.enterInventoryToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 390);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1002, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(118, 17);
+            this.statusLabel.Text = "toolStripStatusLabel1";
             // 
             // Main
             // 
@@ -145,6 +155,8 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +175,7 @@
         private System.Windows.Forms.ToolStripMenuItem userReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receivingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enterInventoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
     }
 }
 

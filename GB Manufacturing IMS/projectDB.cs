@@ -208,10 +208,61 @@ namespace GB_Manufacturing_IMS
                     return null; 
                 }
               
-            }
-      
+            }    
             return null;
             }
+
+        public bool getData(string query, bool requireBool)
+        {
+
+            string data;
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    data = cmd.ExecuteScalar().ToString();
+
+                    //close connection
+                    this.CloseConnection();
+                    return true;
+                }
+                catch
+                {
+                    this.CloseConnection();
+                    return false;
+                }
+
+            }
+            return false;
+        }
+
+        public string encrypt(string input)
+        {
+            /*Simple hash function for passwords that need to be encrypted. Insert into database with db.encrypt("txtpwd.txt") etc */
+            try
+            {  
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(input);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+            return hash;
+            }
+            catch
+            {
+                MessageBox.Show("Error while encrypting password.");
+                return null; ;
+            }
+   
+        }
 
 
     }

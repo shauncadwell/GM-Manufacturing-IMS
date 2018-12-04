@@ -13,9 +13,11 @@ namespace GB_Manufacturing_IMS
     public partial class SearchInventory : Form
     {
         projectDB mydb = new projectDB();
-        public SearchInventory()
+        user currentUser = new user();
+        public SearchInventory(user clone)
         {
             InitializeComponent();
+            currentUser = clone;
         }
 
         private void Inventory_Load(object sender, EventArgs e)
