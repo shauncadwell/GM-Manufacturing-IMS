@@ -29,17 +29,17 @@ namespace GB_Manufacturing_IMS
 
         private void btnOrderMaterials_Click(object sender, EventArgs e)
         {
-            f.createWindow("Order Form", this, orderMaterials, false, true);
+            f.createWindow("Order Form", this, orderMaterials, true, true);
         }
 
         private void btnOrderEquipment_Click(object sender, EventArgs e)
         {
-            f.createWindow("Order Equipment", this, orderEquipment, false, true);
+            f.createWindow("Order Equipment", this, orderEquipment, true, true);
         }
 
         private void btnSearchInv_Click(object sender, EventArgs e)
         {
-            f.createWindow("Inventory", this, search, false, true);
+            f.createWindow("Inventory", this, search, true, true);
         }
     }
 }

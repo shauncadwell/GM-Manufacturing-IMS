@@ -29,7 +29,7 @@ namespace GB_Manufacturing_IMS
             {
                 
                 string table = cbSelectTable.Text;
-                string query = "SELECT * FROM " + table + " WHERE description LIKE '" + txtKeyword.Text + "%'";
+                string query = "SELECT * FROM " + table + " WHERE description LIKE '%" + txtKeyword.Text + "%'";
                 mydb.fill(searchTable, query);
                 lblError.Text = null;
             }

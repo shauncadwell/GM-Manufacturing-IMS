@@ -28,19 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
             this.splMainContainer = new System.Windows.Forms.SplitContainer();
             this.tableOrderEquip = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.txtJobCode = new System.Windows.Forms.MaskedTextBox();
             this.lblScanItem = new System.Windows.Forms.Label();
             this.lblJobCode = new System.Windows.Forms.Label();
             this.txtScanItem = new System.Windows.Forms.MaskedTextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSubmitOrder = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvPendingRental = new System.Windows.Forms.DataGridView();
-            this.btnAddItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splMainContainer)).BeginInit();
             this.splMainContainer.Panel1.SuspendLayout();
             this.splMainContainer.Panel2.SuspendLayout();
@@ -49,18 +47,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRental)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.Location = new System.Drawing.Point(111, 415);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(127, 23);
-            this.btnBack.TabIndex = 17;
-            this.btnBack.TabStop = false;
-            this.btnBack.Text = "Back to Main Menu";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // splMainContainer
             // 
@@ -74,12 +60,10 @@
             // 
             this.splMainContainer.Panel1.Controls.Add(this.tableOrderEquip);
             this.splMainContainer.Panel1.Controls.Add(this.lblTitle);
-            this.splMainContainer.Panel1.Controls.Add(this.btnBack);
             // 
             // splMainContainer.Panel2
             // 
             this.splMainContainer.Panel2.Controls.Add(this.btnSubmitOrder);
-            this.splMainContainer.Panel2.Controls.Add(this.btnRemove);
             this.splMainContainer.Panel2.Controls.Add(this.panel1);
             this.splMainContainer.Size = new System.Drawing.Size(800, 450);
             this.splMainContainer.SplitterDistance = 266;
@@ -103,6 +87,18 @@
             this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableOrderEquip.Size = new System.Drawing.Size(226, 108);
             this.tableOrderEquip.TabIndex = 20;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddItem.Location = new System.Drawing.Point(116, 80);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(107, 23);
+            this.btnAddItem.TabIndex = 21;
+            this.btnAddItem.TabStop = false;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // txtJobCode
             // 
@@ -166,17 +162,7 @@
             this.btnSubmitOrder.TabStop = false;
             this.btnSubmitOrder.Text = "Submit Order";
             this.btnSubmitOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Location = new System.Drawing.Point(312, 415);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(102, 23);
-            this.btnRemove.TabIndex = 1;
-            this.btnRemove.TabStop = false;
-            this.btnRemove.Text = "Remove Item";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnSubmitOrder.Click += new System.EventHandler(this.btnSubmitOrder_Click);
             // 
             // panel1
             // 
@@ -191,26 +177,25 @@
             // 
             // dgvPendingRental
             // 
-            this.dgvPendingRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPendingRental.AllowUserToAddRows = false;
+            this.dgvPendingRental.AllowUserToResizeColumns = false;
+            this.dgvPendingRental.AllowUserToResizeRows = false;
+            this.dgvPendingRental.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvPendingRental.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPendingRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPendingRental.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPendingRental.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPendingRental.Location = new System.Drawing.Point(0, 0);
             this.dgvPendingRental.MultiSelect = false;
             this.dgvPendingRental.Name = "dgvPendingRental";
+            this.dgvPendingRental.RowHeadersVisible = false;
+            this.dgvPendingRental.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPendingRental.RowTemplate.ReadOnly = true;
+            this.dgvPendingRental.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPendingRental.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPendingRental.Size = new System.Drawing.Size(527, 395);
             this.dgvPendingRental.TabIndex = 0;
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddItem.Location = new System.Drawing.Point(116, 80);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(107, 23);
-            this.btnAddItem.TabIndex = 21;
-            this.btnAddItem.TabStop = false;
-            this.btnAddItem.Text = "Add Item";
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            this.dgvPendingRental.TabStop = false;
             // 
             // OrderEquipment
             // 
@@ -221,6 +206,7 @@
             this.Controls.Add(this.splMainContainer);
             this.Name = "OrderEquipment";
             this.Text = "OrderEquipment";
+            this.Load += new System.EventHandler(this.OrderEquipment_Load);
             this.splMainContainer.Panel1.ResumeLayout(false);
             this.splMainContainer.Panel1.PerformLayout();
             this.splMainContainer.Panel2.ResumeLayout(false);
@@ -235,15 +221,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.SplitContainer splMainContainer;
         private System.Windows.Forms.TableLayoutPanel tableOrderEquip;
         private System.Windows.Forms.Label lblScanItem;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblJobCode;
         private System.Windows.Forms.Button btnSubmitOrder;
-        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvPendingRental;
         private System.Windows.Forms.MaskedTextBox txtScanItem;
