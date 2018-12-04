@@ -16,5 +16,33 @@ namespace GB_Manufacturing_IMS
         {
             InitializeComponent();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmployee_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            if (txtEmployee != NULL)
+            {
+                string query = "SELECT * FROM Employees WHERE firstName LIKE '%" + txtEmployee.Text + "%'";
+                mydb.fill(searchTable, query);
+                lblError.Text = null;
+            }
+            else
+            {
+                lblError.Text = "An error has occurred. Please fill out all fields.";
+            }
+            */
+        }
+
+
     }
 }

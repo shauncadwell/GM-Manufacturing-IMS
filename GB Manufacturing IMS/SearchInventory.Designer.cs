@@ -50,6 +50,7 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(195, 20);
             this.txtKeyword.TabIndex = 1;
+            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
             // 
             // lblKeyword
             // 
@@ -145,6 +146,7 @@
             this.cbSelectTable.Size = new System.Drawing.Size(195, 21);
             this.cbSelectTable.TabIndex = 5;
             this.cbSelectTable.TabStop = false;
+            this.cbSelectTable.SelectedIndexChanged += new System.EventHandler(this.cbSelectTable_SelectedIndexChanged);
             // 
             // SearchInventory
             // 
