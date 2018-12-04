@@ -21,12 +21,7 @@ namespace GB_Manufacturing_IMS
         //App form objects will need to be created for each forum. 
        
  
-        login loginWindow = new login();
-
- 
-    
-        userManagement usermgmt = new userManagement();
-
+       // 
         // Comment is awesome + 1
 
         public Main(user userInfo)
@@ -54,6 +49,7 @@ namespace GB_Manufacturing_IMS
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            userManagement usermgmt = new userManagement(currentUser);
             f.createWindow("User Management", this, usermgmt, true, true);
    
         }
@@ -69,6 +65,7 @@ namespace GB_Manufacturing_IMS
             //CLOSE ALL WINDOWS
             this.Close();
             //Show login page
+            login loginWindow = new login();
             f.createWindow("Login", this, loginWindow, true, false);
 
         }

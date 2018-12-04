@@ -12,9 +12,11 @@ namespace GB_Manufacturing_IMS
 {
     public partial class userManagement : Form
     {
-        public userManagement()
+        user currentUser = new user();
+        public userManagement(user clone)
         {
             InitializeComponent();
+            currentUser = clone;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

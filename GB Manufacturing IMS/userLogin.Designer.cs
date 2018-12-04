@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmpID = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnUserLogin = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.txtPW = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.13297F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.86703F));
-            this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnUserLogin, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnQuit, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -99,21 +99,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 133);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // btnLogin
+            // btnUserLogin
             // 
-            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.Location = new System.Drawing.Point(92, 71);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(185, 27);
-            this.btnLogin.TabIndex = 9;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnUserLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserLogin.Location = new System.Drawing.Point(92, 71);
+            this.btnUserLogin.Name = "btnUserLogin";
+            this.btnUserLogin.Size = new System.Drawing.Size(185, 27);
+            this.btnUserLogin.TabIndex = 2;
+            this.btnUserLogin.Text = "Login";
+            this.btnUserLogin.UseVisualStyleBackColor = true;
+            this.btnUserLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnQuit
             // 
+            this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnQuit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnQuit.Location = new System.Drawing.Point(92, 104);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(185, 26);
@@ -130,7 +130,7 @@
             this.txtPW.Name = "txtPW";
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(185, 20);
-            this.txtPW.TabIndex = 2;
+            this.txtPW.TabIndex = 1;
             // 
             // label3
             // 
@@ -171,7 +171,7 @@
             // 
             // login
             // 
-            this.AcceptButton = this.btnLogin;
+            this.AcceptButton = this.btnUserLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -208,6 +208,6 @@
         private System.Windows.Forms.TextBox txtPW;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnUserLogin;
     }
 }
