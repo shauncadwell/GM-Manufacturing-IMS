@@ -50,7 +50,7 @@ namespace GB_Manufacturing_IMS
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             f.createWindow("User Management", this, usermgmt, true, true);
-            //not yet implemented.
+   
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
