@@ -25,6 +25,7 @@ namespace GB_Manufacturing_IMS
         Intro startup = new Intro();
         NewOrder newOrder = new NewOrder();
         addInventory invControl = new addInventory();
+        userManagement usermgmt = new userManagement();
 
         // Comment is awesome + 1
 
@@ -48,6 +49,7 @@ namespace GB_Manufacturing_IMS
 
         private void adminToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            f.createWindow("User Management", this, usermgmt, true, true);
             //not yet implemented.
         }
 
