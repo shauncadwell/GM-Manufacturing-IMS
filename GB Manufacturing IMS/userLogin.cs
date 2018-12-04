@@ -85,8 +85,6 @@ namespace GB_Manufacturing_IMS
 
                     currentUser.set(uid, rank, fname, lname, employmentStatus);
                     //verify everything worked
-                    string msg = currentUser.getID() + " " + currentUser.getRank() + " " + currentUser.getFullName() + " " + currentUser.getStatus();
-                    MessageBox.Show(msg);
 
                     //Proceed with login
                     Main form = new Main(currentUser);

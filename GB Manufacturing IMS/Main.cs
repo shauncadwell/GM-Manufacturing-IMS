@@ -43,6 +43,7 @@ namespace GB_Manufacturing_IMS
             //Load login dialog  
             Intro startup = new Intro(currentUser);
             f.createWindow("Startup", this, startup, false, false);
+            statusLabel.Text = "Logged in as " + currentUser.getFullName();
         }
 
         private void viewInventoryToolStripMenuItem_Click(object sender, EventArgs e)

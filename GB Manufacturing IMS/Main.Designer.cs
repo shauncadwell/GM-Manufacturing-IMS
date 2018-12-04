@@ -137,8 +137,8 @@
             // statusLabel
             // 
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(118, 17);
-            this.statusLabel.Text = "toolStripStatusLabel1";
+            this.statusLabel.Size = new System.Drawing.Size(80, 17);
+            this.statusLabel.Text = "Logged in as: ";
             // 
             // Main
             // 
