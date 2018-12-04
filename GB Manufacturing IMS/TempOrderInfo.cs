@@ -8,6 +8,8 @@ namespace GB_Manufacturing_IMS
 {
     class TempOrderInfo : IEquatable<TempOrderInfo>
     {
+        /* Reference: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2
+         * ************************************************************/
         public int itemNumber { get; set; }
         public int jobCode { get; set; }
         public string description { get; set; }
