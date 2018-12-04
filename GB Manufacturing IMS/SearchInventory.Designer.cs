@@ -33,11 +33,10 @@
             this.searchTable = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSelect = new System.Windows.Forms.Label();
             this.cbSelectTable = new System.Windows.Forms.ComboBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.searchTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -95,7 +94,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.lblSelect);
             this.splitContainer1.Panel1.Controls.Add(this.cbSelectTable);
-            this.splitContainer1.Panel1.Controls.Add(this.btnBack);
             this.splitContainer1.Panel1.Controls.Add(this.txtKeyword);
             this.splitContainer1.Panel1.Controls.Add(this.btnSubmit);
             this.splitContainer1.Panel1.Controls.Add(this.lblKeyword);
@@ -106,6 +104,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(973, 454);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(55, 232);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 8;
             // 
             // label1
             // 
@@ -139,33 +146,12 @@
             this.cbSelectTable.TabIndex = 5;
             this.cbSelectTable.TabStop = false;
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(113, 48);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(140, 23);
-            this.btnBack.TabIndex = 4;
-            this.btnBack.TabStop = false;
-            this.btnBack.Text = "Back to Main Menu";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(55, 232);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
-            this.lblError.TabIndex = 8;
-            // 
             // SearchInventory
             // 
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 454);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -194,7 +180,6 @@
         private System.Windows.Forms.DataGridView searchTable;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ComboBox cbSelectTable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSelect;

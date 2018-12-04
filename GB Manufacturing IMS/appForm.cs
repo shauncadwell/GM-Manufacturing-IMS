@@ -28,6 +28,10 @@ namespace GB_Manufacturing_IMS
         {
             if (isDiag)
                 {
+                    targetForm.WindowState = FormWindowState.Normal;
+                    targetForm.MinimizeBox = false;
+                    targetForm.MaximizeBox = false;
+                    targetForm.FormBorderStyle = FormBorderStyle.FixedSingle;
                     targetForm.ShowDialog();
                 }
             else
@@ -41,9 +45,8 @@ namespace GB_Manufacturing_IMS
                         targetForm.MdiParent = currentForm;
                     }
                     targetForm.Dock = DockStyle.Fill;
-                    targetForm.WindowState = FormWindowState.Maximized;
-                    targetForm.ControlBox = false;
-                    targetForm.FormBorderStyle = FormBorderStyle.None;
+              //      targetForm.WindowState = FormWindowState.Maximized;
+                    targetForm.FormBorderStyle = FormBorderStyle.FixedSingle;
                     targetForm.Focus();
                     targetForm.Show();
                 }
