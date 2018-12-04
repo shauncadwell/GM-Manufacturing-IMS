@@ -44,5 +44,15 @@ namespace GB_Manufacturing_IMS
         {
             this.Hide();
         }
+
+        private void cbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
