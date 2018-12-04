@@ -34,9 +34,24 @@ namespace GB_Manufacturing_IMS
         {
             this.employeeTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnEmployee = new System.Windows.Forms.Button();
+            this.grpEmployeeInfo = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkEditStatus = new System.Windows.Forms.LinkLabel();
+            this.lnkEditRank = new System.Windows.Forms.LinkLabel();
+            this.lnkEditLast = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFirst = new System.Windows.Forms.TextBox();
+            this.txtLast = new System.Windows.Forms.TextBox();
+            this.txtRank = new System.Windows.Forms.TextBox();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.lnkEditFirst = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbEmployees = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEmployeeSubmit = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblEmpID = new System.Windows.Forms.Label();
             this.lblCredentials = new System.Windows.Forms.Label();
@@ -56,10 +71,13 @@ namespace GB_Manufacturing_IMS
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.cbEmployees = new System.Windows.Forms.ComboBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtEnterID = new System.Windows.Forms.MaskedTextBox();
             this.employeeTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grpEmployeeInfo.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,10 +93,9 @@ namespace GB_Manufacturing_IMS
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.cbEmployees);
-            this.tabPage1.Controls.Add(this.btnEmployee);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.grpEmployeeInfo);
+            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Controls.Add(this.btnEmployeeSubmit);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -88,31 +105,221 @@ namespace GB_Manufacturing_IMS
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // btnEmployee
+            // grpEmployeeInfo
             // 
-            this.btnEmployee.Location = new System.Drawing.Point(22, 93);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployee.TabIndex = 4;
-            this.btnEmployee.Text = "Search";
-            this.btnEmployee.UseVisualStyleBackColor = true;
+            this.grpEmployeeInfo.Controls.Add(this.tableLayoutPanel2);
+            this.grpEmployeeInfo.Location = new System.Drawing.Point(6, 52);
+            this.grpEmployeeInfo.Name = "grpEmployeeInfo";
+            this.grpEmployeeInfo.Size = new System.Drawing.Size(663, 225);
+            this.grpEmployeeInfo.TabIndex = 7;
+            this.grpEmployeeInfo.TabStop = false;
+            this.grpEmployeeInfo.Text = "Employee Information";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.1796F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.98174F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.99087F));
+            this.tableLayoutPanel2.Controls.Add(this.lnkEditStatus, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lnkEditRank, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lnkEditLast, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.txtFirst, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtLast, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtRank, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.cboStatus, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lnkEditFirst, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(657, 206);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // lnkEditStatus
+            // 
+            this.lnkEditStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lnkEditStatus.AutoSize = true;
+            this.lnkEditStatus.Location = new System.Drawing.Point(278, 137);
+            this.lnkEditStatus.Name = "lnkEditStatus";
+            this.lnkEditStatus.Size = new System.Drawing.Size(25, 13);
+            this.lnkEditStatus.TabIndex = 11;
+            this.lnkEditStatus.TabStop = true;
+            this.lnkEditStatus.Text = "Edit";
+            // 
+            // lnkEditRank
+            // 
+            this.lnkEditRank.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lnkEditRank.AutoSize = true;
+            this.lnkEditRank.Location = new System.Drawing.Point(278, 96);
+            this.lnkEditRank.Name = "lnkEditRank";
+            this.lnkEditRank.Size = new System.Drawing.Size(25, 13);
+            this.lnkEditRank.TabIndex = 10;
+            this.lnkEditRank.TabStop = true;
+            this.lnkEditRank.Text = "Edit";
+            // 
+            // lnkEditLast
+            // 
+            this.lnkEditLast.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lnkEditLast.AutoSize = true;
+            this.lnkEditLast.Location = new System.Drawing.Point(278, 55);
+            this.lnkEditLast.Name = "lnkEditLast";
+            this.lnkEditLast.Size = new System.Drawing.Size(25, 13);
+            this.lnkEditLast.TabIndex = 9;
+            this.lnkEditLast.TabStop = true;
+            this.lnkEditLast.Text = "Edit";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 41);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "First";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(3, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 41);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Last";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(3, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 41);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Rank";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 41);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Employment Status:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtFirst
+            // 
+            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFirst.Enabled = false;
+            this.txtFirst.Location = new System.Drawing.Point(174, 10);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(98, 20);
+            this.txtFirst.TabIndex = 4;
+            // 
+            // txtLast
+            // 
+            this.txtLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLast.Enabled = false;
+            this.txtLast.Location = new System.Drawing.Point(174, 51);
+            this.txtLast.Name = "txtLast";
+            this.txtLast.Size = new System.Drawing.Size(98, 20);
+            this.txtLast.TabIndex = 5;
+            // 
+            // txtRank
+            // 
+            this.txtRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRank.Enabled = false;
+            this.txtRank.Location = new System.Drawing.Point(174, 92);
+            this.txtRank.Name = "txtRank";
+            this.txtRank.Size = new System.Drawing.Size(98, 20);
+            this.txtRank.TabIndex = 6;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboStatus.Enabled = false;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Location = new System.Drawing.Point(174, 133);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(98, 21);
+            this.cboStatus.TabIndex = 7;
+            // 
+            // lnkEditFirst
+            // 
+            this.lnkEditFirst.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lnkEditFirst.AutoSize = true;
+            this.lnkEditFirst.Location = new System.Drawing.Point(278, 14);
+            this.lnkEditFirst.Name = "lnkEditFirst";
+            this.lnkEditFirst.Size = new System.Drawing.Size(25, 13);
+            this.lnkEditFirst.TabIndex = 8;
+            this.lnkEditFirst.TabStop = true;
+            this.lnkEditFirst.Text = "Edit";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.60115F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.39885F));
+            this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cbEmployees, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtEnterID, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(441, 30);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // cbEmployees
+            // 
+            this.cbEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEmployees.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEmployees.FormattingEnabled = true;
+            this.cbEmployees.Items.AddRange(new object[] {
+            "info ",
+            "info",
+            "info"});
+            this.cbEmployees.Location = new System.Drawing.Point(312, 4);
+            this.cbEmployees.Name = "cbEmployees";
+            this.cbEmployees.Size = new System.Drawing.Size(126, 21);
+            this.cbEmployees.TabIndex = 5;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 31);
+            this.label1.Location = new System.Drawing.Point(166, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(140, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Current Employee";
+            this.label1.Text = "Selected Employee";
             // 
-            // dataGridView1
+            // btnEmployeeSubmit
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(262, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(407, 368);
-            this.dataGridView1.TabIndex = 0;
+            this.btnEmployeeSubmit.Location = new System.Drawing.Point(594, 283);
+            this.btnEmployeeSubmit.Name = "btnEmployeeSubmit";
+            this.btnEmployeeSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnEmployeeSubmit.TabIndex = 4;
+            this.btnEmployeeSubmit.Text = "Submit";
+            this.btnEmployeeSubmit.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -178,7 +385,6 @@ namespace GB_Manufacturing_IMS
             this.lblFullName.Size = new System.Drawing.Size(54, 13);
             this.lblFullName.TabIndex = 16;
             this.lblFullName.Text = "Full Name";
-            this.lblFullName.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblStatus
             // 
@@ -294,13 +500,24 @@ namespace GB_Manufacturing_IMS
             this.lblFirstName.TabIndex = 0;
             this.lblFirstName.Text = "First Name";
             // 
-            // cbEmployees
+            // lblID
             // 
-            this.cbEmployees.FormattingEnabled = true;
-            this.cbEmployees.Location = new System.Drawing.Point(22, 57);
-            this.cbEmployees.Name = "cbEmployees";
-            this.cbEmployees.Size = new System.Drawing.Size(209, 21);
-            this.cbEmployees.TabIndex = 5;
+            this.lblID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(3, 8);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(71, 13);
+            this.lblID.TabIndex = 6;
+            this.lblID.Text = "Enter ID";
+            // 
+            // txtEnterID
+            // 
+            this.txtEnterID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEnterID.Location = new System.Drawing.Point(80, 5);
+            this.txtEnterID.Mask = "000000";
+            this.txtEnterID.Name = "txtEnterID";
+            this.txtEnterID.Size = new System.Drawing.Size(80, 20);
+            this.txtEnterID.TabIndex = 7;
             // 
             // userManagement
             // 
@@ -312,8 +529,11 @@ namespace GB_Manufacturing_IMS
             this.Text = "User Management";
             this.employeeTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grpEmployeeInfo.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -325,8 +545,7 @@ namespace GB_Manufacturing_IMS
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnEmployee;
+        private System.Windows.Forms.Button btnEmployeeSubmit;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox2;
@@ -346,5 +565,22 @@ namespace GB_Manufacturing_IMS
         private System.Windows.Forms.Label lblCredentials;
         private System.Windows.Forms.Label lblRankStatus;
         private System.Windows.Forms.ComboBox cbEmployees;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox grpEmployeeInfo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.LinkLabel lnkEditStatus;
+        private System.Windows.Forms.LinkLabel lnkEditRank;
+        private System.Windows.Forms.LinkLabel lnkEditLast;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtFirst;
+        private System.Windows.Forms.TextBox txtLast;
+        private System.Windows.Forms.TextBox txtRank;
+        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.LinkLabel lnkEditFirst;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.MaskedTextBox txtEnterID;
     }
 }
