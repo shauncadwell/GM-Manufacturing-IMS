@@ -63,11 +63,20 @@
             // 
             // searchTable
             // 
+            this.searchTable.AllowUserToAddRows = false;
+            this.searchTable.AllowUserToDeleteRows = false;
+            this.searchTable.AllowUserToResizeColumns = false;
+            this.searchTable.AllowUserToResizeRows = false;
             this.searchTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.searchTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.searchTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTable.Location = new System.Drawing.Point(0, 0);
+            this.searchTable.MultiSelect = false;
             this.searchTable.Name = "searchTable";
             this.searchTable.ReadOnly = true;
+            this.searchTable.RowHeadersVisible = false;
+            this.searchTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.searchTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.searchTable.Size = new System.Drawing.Size(703, 454);
             this.searchTable.TabIndex = 0;
             // 
