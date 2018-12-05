@@ -178,9 +178,20 @@
             // 
             // orderSummary
             // 
-            this.orderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderSummary.AllowUserToAddRows = false;
+            this.orderSummary.AllowUserToDeleteRows = false;
+            this.orderSummary.AllowUserToResizeColumns = false;
+            this.orderSummary.AllowUserToResizeRows = false;
+            this.orderSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderSummary.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.orderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.orderSummary.Location = new System.Drawing.Point(29, 56);
+            this.orderSummary.MultiSelect = false;
             this.orderSummary.Name = "orderSummary";
+            this.orderSummary.ReadOnly = true;
+            this.orderSummary.RowHeadersVisible = false;
+            this.orderSummary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.orderSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderSummary.Size = new System.Drawing.Size(472, 274);
             this.orderSummary.TabIndex = 8;
             // 

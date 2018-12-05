@@ -143,13 +143,13 @@ namespace GB_Manufacturing_IMS
             jobCode.Text = "";
             itemNumber.Text = "";
             itemQuantity.Text = "";
-            orderSummary.Text = "";
             submitOrderBtn.Enabled = false;
             cancelBtn.Enabled = false;
             addItemBtn.Enabled = false;
 
-            // Delete items list
+            // Delete list and data grid view
             orderInfo.Clear();
+            orderSummaryTable.Clear();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
