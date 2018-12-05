@@ -107,7 +107,7 @@ namespace GB_Manufacturing_IMS
         }
 
         //Update statement
-        public void Update(string query)
+        public bool Update(string query)
         {
             try
             {
@@ -126,13 +126,16 @@ namespace GB_Manufacturing_IMS
 
                     //close connection
                     this.CloseConnection();
+                    return true;
                 }
             }
             catch
             {
+                
                 this.CloseConnection();
+                return false;
             }
-
+            return false;
         }
     
         //Delete statement
@@ -173,9 +176,35 @@ namespace GB_Manufacturing_IMS
             catch
             {
                 this.CloseConnection();
+            }         
+        }
+
+        public void fill(ComboBox combo, string query, string displayMember, string valueMember)
+        {
+            /* This function takes a targetted datagridview and sql query and submits results into the DGV. */
+            try
+            {
+                //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    //Store data from database
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                    dataAdapter.SelectCommand = new MySqlCommand(query, connection);
+
+                    //Store data from adapter to table
+                    DataTable table = new DataTable();
+                    dataAdapter.Fill(table);
+                    combo.DataSource = table;
+                    combo.DisplayMember = displayMember;
+                    combo.ValueMember = valueMember;
+
+                    this.connection.Close();
+                }
             }
-   
-                   
+            catch
+            {
+                this.CloseConnection();
+            }
         }
 
         public string getData(string query)
