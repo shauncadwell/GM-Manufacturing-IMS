@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.itemQuantity = new System.Windows.Forms.MaskedTextBox();
             this.titleLbl = new System.Windows.Forms.Label();
             this.itemNumber = new System.Windows.Forms.MaskedTextBox();
             this.jobCode = new System.Windows.Forms.MaskedTextBox();
@@ -38,11 +39,10 @@
             this.quantityLbl = new System.Windows.Forms.Label();
             this.itemNumberLbl = new System.Windows.Forms.Label();
             this.jobCodeLbl = new System.Windows.Forms.Label();
+            this.orderSummary = new System.Windows.Forms.DataGridView();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
-            this.itemQuantity = new System.Windows.Forms.MaskedTextBox();
-            this.orderSummary = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // itemQuantity
+            // 
+            this.itemQuantity.Location = new System.Drawing.Point(130, 139);
+            this.itemQuantity.Mask = "000";
+            this.itemQuantity.Name = "itemQuantity";
+            this.itemQuantity.Size = new System.Drawing.Size(121, 20);
+            this.itemQuantity.TabIndex = 3;
+            this.itemQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // titleLbl
             // 
@@ -167,6 +176,14 @@
             this.jobCodeLbl.TabIndex = 4;
             this.jobCodeLbl.Text = "Job Code:";
             // 
+            // orderSummary
+            // 
+            this.orderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderSummary.Location = new System.Drawing.Point(29, 56);
+            this.orderSummary.Name = "orderSummary";
+            this.orderSummary.Size = new System.Drawing.Size(472, 274);
+            this.orderSummary.TabIndex = 8;
+            // 
             // cancelBtn
             // 
             this.cancelBtn.Enabled = false;
@@ -200,23 +217,6 @@
             this.orderContentsLbl.TabIndex = 1;
             this.orderContentsLbl.Text = "Order Summary";
             // 
-            // itemQuantity
-            // 
-            this.itemQuantity.Location = new System.Drawing.Point(130, 139);
-            this.itemQuantity.Mask = "000";
-            this.itemQuantity.Name = "itemQuantity";
-            this.itemQuantity.Size = new System.Drawing.Size(121, 20);
-            this.itemQuantity.TabIndex = 3;
-            this.itemQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // orderSummary
-            // 
-            this.orderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orderSummary.Location = new System.Drawing.Point(29, 56);
-            this.orderSummary.Name = "orderSummary";
-            this.orderSummary.Size = new System.Drawing.Size(472, 274);
-            this.orderSummary.TabIndex = 8;
-            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +230,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Order";
+            this.Text = "Material Order";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
