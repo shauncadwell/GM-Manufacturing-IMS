@@ -83,7 +83,11 @@ namespace GB_Manufacturing_IMS
             f.createWindow("enterInventory", this, invControl, false, false);
         }
 
-
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Show login page
+            Application.Exit();
+        }
     }
 
 
