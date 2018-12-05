@@ -12,6 +12,8 @@ namespace GB_Manufacturing_IMS
 {
     public partial class login : Form
     {
+        bool isNewInstall = false;
+
         public login()
         {
             InitializeComponent();
@@ -20,27 +22,32 @@ namespace GB_Manufacturing_IMS
 
         private void login_Load(object sender, EventArgs e)
         {
-            //See if user is already logged in
+            //Check if ANY users exist.
+            projectDB db = new projectDB();
+            string query = "SELECT MAX(employeeID) FROM Employees";
+            string result = db.getData(query);
+            if (result == "1")
+            {
+                MessageBox.Show("No users were found in the system. Contact Technicial Support. If this is a new install, please enter default credentials below.");
+                isNewInstall = true;
+            }
+        
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-        //    Main f = new Main("Shaun Cadwell");
-            //remove this once program is ready   
-         //   this.Hide();
-         //   f.Show();
-     
-            //Remove close
+            if (isNewInstall)
+            {
+                newInstall();
+            }
             try
             {
-               if(verifyCredentials(Convert.ToInt32(txtEmpID.Text), txtPW.Text))
+               if(verifyCredentials(txtEmpID.Text, txtPW.Text))
                 {
                     txtEmpID.Clear();
                     txtPW.Clear();
-                    lblError.Visible = false;
-
- 
+                    lblError.Visible = false; 
                 }
                 
             }
@@ -50,7 +57,7 @@ namespace GB_Manufacturing_IMS
             }
         }
 
-        private bool verifyCredentials(int userID, string password)
+        private bool verifyCredentials(string userID, string password)
         //Function to verify user information and return whether access is permitted or denied.
         {
             //Create database and user objects
@@ -59,31 +66,29 @@ namespace GB_Manufacturing_IMS
 
             //local variables
             int uid, rank = 0;
-            string fname, lname, employmentStatus = null;
+            string fname, lname, username, employmentStatus = null;
             bool verified = false;
-      
 
-
-            //************************************************encrypt password DISABLE FOR NOW
-           // password = db.encrypt(password);
+            //************************************************encrypt password 
+           password = db.encrypt(password);
 
             //Try to find the user int the database.
             try
             {
                 //See if username and password match on database
-                string query = "SELECT employeeID FROM Employees WHERE employeeID='" + userID + "' AND userPass ='" + password + "';";
+                string query = "SELECT employeeID FROM Employees WHERE username='" + userID + "' AND userPass ='" + password + "';";
                 verified = db.getData(query, true);
 
                 if (verified)
                 {
                     //Set user information
-                    uid = Convert.ToInt32(db.getData("SELECT employeeID FROM Employees WHERE employeeID = '" + userID + "' AND userPass = '" + password + "'; "));
-                    rank = Convert.ToInt32(db.getData("SELECT rank FROM Employees WHERE employeeID = '" + userID + "' AND userPass = '" + password + "'; "));
-                    fname = db.getData("SELECT firstName FROM Employees WHERE employeeID = '" + userID + "' AND userPass = '" + password + "'; ");
-                    lname = db.getData("SELECT lastName FROM Employees WHERE employeeID = '" + userID + "' AND userPass = '" + password + "'; ");
-                    employmentStatus = db.getData("SELECT employeeStatus FROM Employees WHERE employeeID = '" + userID + "' AND userPass = '" + password + "'; ");
-
-                    currentUser.set(uid, rank, fname, lname, employmentStatus);
+                    uid = Convert.ToInt32(db.getData("SELECT employeeID FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
+                    rank = Convert.ToInt32(db.getData("SELECT rank FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
+                    fname = db.getData("SELECT firstName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    lname = db.getData("SELECT lastName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    employmentStatus = db.getData("SELECT employeeStatus FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    username = txtEmpID.Text;
+                    currentUser.set(uid, rank, fname, lname, employmentStatus, username);
                     //verify everything worked
 
                     //Proceed with login
@@ -95,15 +100,29 @@ namespace GB_Manufacturing_IMS
             }
             catch
             {
+
                 return false;
             }
-            
+            lblError.Visible = true;
             return false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void newInstall()
+        {
+            user currentUser = new user();
+            if ((txtEmpID.Text == "SuperTech") & (txtPW.Text == "password"))
+            {
+                MessageBox.Show("Successful");
+                //Proceed with login
+                Main form = new Main(currentUser);
+                form.Show();
+                this.Hide();
+            }
         }
 
     }

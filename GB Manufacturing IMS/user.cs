@@ -13,14 +13,18 @@ namespace GB_Manufacturing_IMS
         string fName = "Unknown";
         string lName = "Unknown";
         string status = "Employed";
+        string username = "Unknown";
 
-        public void set(int uid, int urank, string ufname, string ulname, string ustatus)
+
+        public void set(int uid, int urank, string ufname, string ulname, string ustatus, string userName)
         {
             id = uid;
             rank = urank;
             fName = ufname;
             lName = ulname;
             status = ustatus;
+            userName = username;
+
         }
         //setters
         public void setFname(string f) { fName = f; }
@@ -28,9 +32,11 @@ namespace GB_Manufacturing_IMS
         public void setID(int f) { id = f; }
         public void setRank(int f) { rank = f; }
         public void setStatus(string f) { status = f; }
+       
         //getters
         public string getFullName() { return fName + " " + lName; }
         public string getfName() { return fName; }
+        public string getUsername() { return username; }
         public string getlName() { return lName; }
         public string getStatus() { return status; }
         public int getRank() { return rank; }

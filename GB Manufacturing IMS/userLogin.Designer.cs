@@ -53,7 +53,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 34);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Employee ID";
+            this.label1.Text = "Username";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -76,7 +76,7 @@
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.Size = new System.Drawing.Size(185, 20);
             this.txtEmpID.TabIndex = 0;
-            this.txtEmpID.Text = "2";
+            this.txtEmpID.Text = "Henson";
             // 
             // tableLayoutPanel1
             // 
@@ -132,7 +132,7 @@
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(185, 20);
             this.txtPW.TabIndex = 1;
-            this.txtPW.Text = "admin";
+            this.txtPW.Text = "CEIS400";
             // 
             // label3
             // 
@@ -164,7 +164,7 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(250, 140);
+            this.lblError.Location = new System.Drawing.Point(265, 289);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(246, 13);
             this.lblError.TabIndex = 8;
