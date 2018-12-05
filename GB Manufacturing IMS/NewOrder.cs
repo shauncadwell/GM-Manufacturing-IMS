@@ -34,14 +34,14 @@ namespace GB_Manufacturing_IMS
         public NewOrder(user clone)
         {
             InitializeComponent();
-            populateSummartTable();                     // Add data grid view headers
+            populateSummaryTable();                     // Add data grid view headers
             currentUser = clone;
         }
 
         /* Create and populate Data Grid View headers
          * *  ***************************************/
         DataTable orderSummaryTable = new DataTable();
-        private void populateSummartTable()
+        private void populateSummaryTable()
         {
             orderSummaryTable.Columns.Add("Item Number", typeof(int));
             orderSummaryTable.Columns.Add("Description", typeof(string));
@@ -91,11 +91,9 @@ namespace GB_Manufacturing_IMS
                         quantity = Convert.ToInt32(itemQuantity.Text)
                     });
 
-                    // Populate "Order Summary Box"
-                    foreach (TempOrderInfo item in orderInfo) // NEEDS TO NOT BE A LOOP
-                    {
-                        orderSummaryTable.Rows.Add(item.itemNumber, item.description, item.quantity);
-                    }
+                    // Add item to data grid view
+                    TempOrderInfo lastEntry = orderInfo.Last();
+                    orderSummaryTable.Rows.Add(lastEntry.itemNumber, lastEntry.description, lastEntry.quantity);
 
                     submitOrderBtn.Enabled = true;
                     cancelBtn.Enabled = true;
