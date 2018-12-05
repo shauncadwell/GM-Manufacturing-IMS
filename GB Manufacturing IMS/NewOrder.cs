@@ -33,19 +33,30 @@ namespace GB_Manufacturing_IMS
         public NewOrder()
         {
             InitializeComponent();
+            populateSummartTable();                     // Add data grid view headers
         }
 
-        private void verifyBtn_Click(object sender, EventArgs e)
+        /* Create and populate Data Grid View headers
+         * *  ***************************************/
+        DataTable orderSummaryTable = new DataTable();
+        private void populateSummartTable()
         {
-            
+            orderSummaryTable.Columns.Add("Item Number", typeof(int));
+            orderSummaryTable.Columns.Add("Description", typeof(string));
+            orderSummaryTable.Columns.Add("Quantity", typeof(int));
+
+            orderSummary.DataSource = orderSummaryTable;    // Populate table headers
         }
 
+        /*  Adds item data to orderInfo list and displays it in order summary
+         *  ***************************************/
         private void addItemBtn_Click(object sender, EventArgs e)
         {
             // Get item descipriton and determine if itemNumber exists in the database
             string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
             string result = dbconn.getData(materialSearch);
 
+            // Hanle no matching item found in database
             if (result == null)
             {
                 MessageBox.Show("Item number doesn't exist. Please try another item number.", "Invalid Item", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -57,19 +68,10 @@ namespace GB_Manufacturing_IMS
             }
             else
             {
-                itemValidityMessage.Visible = false;
+                itemValidityMessage.Visible = false;            // Hide invalid item number message
 
                 // Retrieve item description from database
                 string itemDescription = result;
-
-                // Adds new order item to list
-                orderInfo.Add(new TempOrderInfo()
-                {
-                    itemNumber = Convert.ToInt32(itemNumber.Text),
-                    jobCode = Convert.ToInt32(jobCode.Text),
-                    description = itemDescription,
-                    quantity = Convert.ToInt32(itemQuantity.Text)
-                });
 
                 // Displays item in summary box and increments itemCount
                 if (Convert.ToInt32(itemQuantity.Text) < 1 || Convert.ToInt32(itemQuantity.Text) > 100)
@@ -78,13 +80,20 @@ namespace GB_Manufacturing_IMS
                 }
                 else
                 {
-                    // Populate "Order Summary Box"
-                    string orderSummaryText = "";
-                    foreach (TempOrderInfo order in orderInfo)
+                    // Add new order item to list
+                    orderInfo.Add(new TempOrderInfo()
                     {
-                        orderSummaryText += order.displayEntry();
+                        itemNumber = Convert.ToInt32(itemNumber.Text),
+                        jobCode = Convert.ToInt32(jobCode.Text),
+                        description = itemDescription,
+                        quantity = Convert.ToInt32(itemQuantity.Text)
+                    });
+
+                    // Populate "Order Summary Box"
+                    foreach (TempOrderInfo item in orderInfo) // NEEDS TO NOT BE A LOOP
+                    {
+                        orderSummaryTable.Rows.Add(item.itemNumber, item.description, item.quantity);
                     }
-                    orderSummary.Text = orderSummaryText;
 
                     submitOrderBtn.Enabled = true;
                     cancelBtn.Enabled = true;
