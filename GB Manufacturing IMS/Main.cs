@@ -73,7 +73,7 @@ namespace GB_Manufacturing_IMS
         private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             //Create new order
-            NewOrder newOrder = new NewOrder();
+            NewOrder newOrder = new NewOrder(currentUser);
             f.createWindow("New Order", this, newOrder, false, false);
         }
 

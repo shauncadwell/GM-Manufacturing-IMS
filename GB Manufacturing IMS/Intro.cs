@@ -13,9 +13,6 @@ namespace GB_Manufacturing_IMS
     public partial class Intro : Form
     {
         appForm f = new appForm();
-        NewOrder orderMaterials = new NewOrder();
-
-
         user currentUser = new user();
 
         public Intro(user clone)
@@ -31,6 +28,7 @@ namespace GB_Manufacturing_IMS
 
         private void btnOrderMaterials_Click(object sender, EventArgs e)
         {
+            NewOrder orderMaterials = new NewOrder(currentUser);
             f.createWindow("Order Form", this, orderMaterials, true, true);
         }
 

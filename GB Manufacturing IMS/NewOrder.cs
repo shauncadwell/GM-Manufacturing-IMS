@@ -23,6 +23,7 @@ namespace GB_Manufacturing_IMS
         private projectDB dbconn = new projectDB();
         private Color successColor = System.Drawing.Color.Blue;
         private Color errorColor = System.Drawing.Color.DarkRed;
+        user currentUser = new user();
 
         /* List to store itemNumber, jobCode, description, and quantity
          * Uses TempOrderInfo.cs
@@ -30,10 +31,11 @@ namespace GB_Manufacturing_IMS
          * ************************************************************/
         private List<TempOrderInfo> orderInfo = new List<TempOrderInfo>();
 
-        public NewOrder()
+        public NewOrder(user clone)
         {
             InitializeComponent();
             populateSummartTable();                     // Add data grid view headers
+            currentUser = clone;
         }
 
         /* Create and populate Data Grid View headers
