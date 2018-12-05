@@ -39,6 +39,8 @@ namespace GB_Manufacturing_IMS
 
         private void dgvSearchEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
             int index = e.RowIndex;
             DataGridViewRow selectedRow = dgvSearchEmployees.Rows[index];
 
@@ -49,6 +51,13 @@ namespace GB_Manufacturing_IMS
             cbRank.Text = selectedRow.Cells[4].Value.ToString();
             cboStatus.Text = selectedRow.Cells[5].Value.ToString();
             btnResetPw.Enabled = true;
+            }
+            catch
+
+            {
+
+            }
+       
         }
 
         private void lnkEditFirst_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
