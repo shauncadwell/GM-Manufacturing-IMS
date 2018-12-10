@@ -63,7 +63,7 @@ namespace GB_Manufacturing_IMS
         {
             MessageBox.Show("You have been logged out successfully.");
             //CLOSE ALL WINDOWS
-            this.Close();
+            this.Hide();
             //Show login page
             login loginWindow = new login();
             f.createWindow("Login", this, loginWindow, true, false);
@@ -85,7 +85,6 @@ namespace GB_Manufacturing_IMS
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Show login page
             Application.Exit();
         }
     }
