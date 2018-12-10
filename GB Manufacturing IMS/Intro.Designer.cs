@@ -34,6 +34,7 @@
             this.btnOrderEquipment = new System.Windows.Forms.Button();
             this.pnltopBar = new System.Windows.Forms.Panel();
             this.btnSearchInv = new System.Windows.Forms.Button();
+            this.btnReturnEquip = new System.Windows.Forms.Button();
             this.pnltopBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +110,18 @@
             this.btnSearchInv.UseVisualStyleBackColor = false;
             this.btnSearchInv.Click += new System.EventHandler(this.btnSearchInv_Click);
             // 
+            // btnReturnEquip
+            // 
+            this.btnReturnEquip.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnReturnEquip.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnEquip.Location = new System.Drawing.Point(312, 242);
+            this.btnReturnEquip.Name = "btnReturnEquip";
+            this.btnReturnEquip.Size = new System.Drawing.Size(259, 120);
+            this.btnReturnEquip.TabIndex = 6;
+            this.btnReturnEquip.Text = "Return Equipment";
+            this.btnReturnEquip.UseVisualStyleBackColor = false;
+            this.btnReturnEquip.Click += new System.EventHandler(this.btnReturnEquip_Click);
+            // 
             // Intro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,6 +129,7 @@
             this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(1095, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReturnEquip);
             this.Controls.Add(this.btnSearchInv);
             this.Controls.Add(this.pnltopBar);
             this.Controls.Add(this.btnOrderEquipment);
@@ -143,5 +157,6 @@
         private System.Windows.Forms.Button btnOrderEquipment;
         private System.Windows.Forms.Panel pnltopBar;
         private System.Windows.Forms.Button btnSearchInv;
+        private System.Windows.Forms.Button btnReturnEquip;
     }
 }

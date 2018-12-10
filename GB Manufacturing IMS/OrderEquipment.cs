@@ -71,6 +71,7 @@ namespace GB_Manufacturing_IMS
 
         private void OrderEquipment_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("This section is not yet available. Functions have not yet been implemented.", "Section Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
             dgvPendingRental.Columns.Clear();
             dgvPendingRental.Columns.Add("equipmentID", "Item Number");
             dgvPendingRental.Columns.Add("description", "Description");
