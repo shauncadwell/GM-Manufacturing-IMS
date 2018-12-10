@@ -34,6 +34,8 @@ namespace GB_Manufacturing_IMS
 
         private void btnOrderEquipment_Click(object sender, EventArgs e)
         {
+
+
             OrderEquipment orderEquipment = new OrderEquipment(currentUser);
             f.createWindow("Order Equipment", this, orderEquipment, true, true);
         }
@@ -47,6 +49,11 @@ namespace GB_Manufacturing_IMS
         private void Intro_Load(object sender, EventArgs e)
         {
             //testing cross object from main form;
+        }
+
+        private void btnReturnEquip_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This section is not yet available.", "Section Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

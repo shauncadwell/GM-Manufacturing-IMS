@@ -52,7 +52,7 @@
             this.receivingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1026, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -68,7 +68,7 @@
             // closeAllFormsToolStripMenuItem
             // 
             this.closeAllFormsToolStripMenuItem.Name = "closeAllFormsToolStripMenuItem";
-            this.closeAllFormsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.closeAllFormsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeAllFormsToolStripMenuItem.Text = "Logout";
             this.closeAllFormsToolStripMenuItem.Click += new System.EventHandler(this.closeAllFormsToolStripMenuItem_Click);
             // 
@@ -84,7 +84,7 @@
             // adminToolsToolStripMenuItem
             // 
             this.adminToolsToolStripMenuItem.Name = "adminToolsToolStripMenuItem";
-            this.adminToolsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.adminToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.adminToolsToolStripMenuItem.Text = "Manage Users";
             this.adminToolsToolStripMenuItem.Click += new System.EventHandler(this.adminToolsToolStripMenuItem_Click);
             // 
@@ -94,19 +94,21 @@
             this.inventoryReportToolStripMenuItem,
             this.userReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // inventoryReportToolStripMenuItem
             // 
+            this.inventoryReportToolStripMenuItem.Enabled = false;
             this.inventoryReportToolStripMenuItem.Name = "inventoryReportToolStripMenuItem";
-            this.inventoryReportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.inventoryReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inventoryReportToolStripMenuItem.Text = "Inventory Report";
             // 
             // userReportToolStripMenuItem
             // 
+            this.userReportToolStripMenuItem.Enabled = false;
             this.userReportToolStripMenuItem.Name = "userReportToolStripMenuItem";
-            this.userReportToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.userReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userReportToolStripMenuItem.Text = "User Report";
             // 
             // receivingToolStripMenuItem
@@ -119,8 +121,9 @@
             // 
             // enterInventoryToolStripMenuItem
             // 
+            this.enterInventoryToolStripMenuItem.Enabled = false;
             this.enterInventoryToolStripMenuItem.Name = "enterInventoryToolStripMenuItem";
-            this.enterInventoryToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.enterInventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enterInventoryToolStripMenuItem.Text = "Inventory Control";
             this.enterInventoryToolStripMenuItem.Click += new System.EventHandler(this.enterInventoryToolStripMenuItem_Click);
             // 
@@ -128,9 +131,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 390);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1002, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1026, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -144,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 412);
+            this.ClientSize = new System.Drawing.Size(1026, 461);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
