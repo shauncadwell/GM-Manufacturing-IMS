@@ -76,7 +76,7 @@
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.Size = new System.Drawing.Size(185, 20);
             this.txtEmpID.TabIndex = 0;
-            this.txtEmpID.Text = "Henson";
+            this.txtEmpID.Text = "admin";
             // 
             // tableLayoutPanel1
             // 
@@ -132,7 +132,7 @@
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(185, 20);
             this.txtPW.TabIndex = 1;
-            this.txtPW.Text = "CEIS400";
+            this.txtPW.Text = "password";
             // 
             // label3
             // 

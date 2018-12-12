@@ -13,18 +13,22 @@ namespace GB_Manufacturing_IMS
     public partial class login : Form
     {
         bool isNewInstall = false;
-
+        projectDB db = new projectDB();
         public login()
         {
             InitializeComponent();
-
         }
 
 
         private void login_Load(object sender, EventArgs e)
         {
             //Check if ANY users exist.
-            projectDB db = new projectDB();
+            bool ping = db.PingHost("127.0.0.1");
+            if (ping == false)
+            {
+                MessageBox.Show("No network detected. Program will close.");
+                Application.Exit();
+            }
             string query = "SELECT MAX(employeeID) FROM Employees";
             string result = db.getData(query);
             if (result == "1")
