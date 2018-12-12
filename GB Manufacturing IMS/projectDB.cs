@@ -274,24 +274,20 @@ namespace GB_Manufacturing_IMS
             }
             return false;
         }
-
-        public string encrypt(string input)
+        public string encrypt(string value)
         {
-            /*Simple hash function for passwords that need to be encrypted. Insert into database with db.encrypt("txtpwd.txt") etc */
-            try
-            {  
-            byte[] data = System.Text.Encoding.ASCII.GetBytes(input);
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            String hash = System.Text.Encoding.ASCII.GetString(data);
-            return hash;
-            }
-            catch
+            var sha1 = System.Security.Cryptography.SHA1.Create();
+            var inputBytes = Encoding.ASCII.GetBytes(value);
+            var hash = sha1.ComputeHash(inputBytes);
+
+            var sb = new StringBuilder();
+            for (var i = 0; i < hash.Length; i++)
             {
-                MessageBox.Show("Error while encrypting password.");
-                return null; ;
+                sb.Append(hash[i].ToString("X2"));
             }
-   
+            return sb.ToString();
         }
+
 
 
     }

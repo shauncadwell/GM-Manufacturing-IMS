@@ -17,6 +17,7 @@ namespace GB_Manufacturing_IMS
         public login()
         {
             InitializeComponent();
+
         }
 
 
