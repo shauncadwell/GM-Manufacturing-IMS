@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GB_Manufacturing_IMS
 {
@@ -42,19 +43,15 @@ namespace GB_Manufacturing_IMS
         public int getRank() { return rank; }
         public int getID() { return id; }
 
-        public void update()
+        public bool verifyRank(int reqRank, Form form)
         {
-            //Use ProjectDB to update using runquery function
-        }
-
-        public void add()
-        {
-            //Use ProjectDB to add into database using runquery function
-        }
-
-        public void remove()
-        {
-            //Use ProjectDB to remove from database using runquery function
+            if(reqRank > rank)
+            {
+                MessageBox.Show("Unable to access this form. Contact an administrator for more help.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                form.Close();
+                return false;
+            }
+            return true;
         }
     }
 }

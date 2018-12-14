@@ -33,7 +33,6 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.itemNumber = new System.Windows.Forms.MaskedTextBox();
             this.jobCode = new System.Windows.Forms.MaskedTextBox();
-            this.btnBack = new System.Windows.Forms.Button();
             this.itemValidityMessage = new System.Windows.Forms.Label();
             this.addItemBtn = new System.Windows.Forms.Button();
             this.quantityLbl = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.titleLbl);
             this.splitContainer1.Panel1.Controls.Add(this.itemNumber);
             this.splitContainer1.Panel1.Controls.Add(this.jobCode);
-            this.splitContainer1.Panel1.Controls.Add(this.btnBack);
             this.splitContainer1.Panel1.Controls.Add(this.itemValidityMessage);
             this.splitContainer1.Panel1.Controls.Add(this.addItemBtn);
             this.splitContainer1.Panel1.Controls.Add(this.quantityLbl);
@@ -117,16 +115,6 @@
             this.jobCode.TabIndex = 1;
             this.jobCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(70, 241);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(127, 23);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back to Main Menu";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // itemValidityMessage
             // 
             this.itemValidityMessage.AutoSize = true;
@@ -141,9 +129,9 @@
             // addItemBtn
             // 
             this.addItemBtn.Enabled = false;
-            this.addItemBtn.Location = new System.Drawing.Point(94, 165);
+            this.addItemBtn.Location = new System.Drawing.Point(131, 165);
             this.addItemBtn.Name = "addItemBtn";
-            this.addItemBtn.Size = new System.Drawing.Size(75, 23);
+            this.addItemBtn.Size = new System.Drawing.Size(120, 23);
             this.addItemBtn.TabIndex = 4;
             this.addItemBtn.Text = "Add Item";
             this.addItemBtn.UseVisualStyleBackColor = true;
@@ -221,15 +209,16 @@
             // orderContentsLbl
             // 
             this.orderContentsLbl.AutoSize = true;
-            this.orderContentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderContentsLbl.Location = new System.Drawing.Point(225, 9);
+            this.orderContentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderContentsLbl.Location = new System.Drawing.Point(178, 28);
             this.orderContentsLbl.Name = "orderContentsLbl";
-            this.orderContentsLbl.Size = new System.Drawing.Size(92, 13);
+            this.orderContentsLbl.Size = new System.Drawing.Size(175, 25);
             this.orderContentsLbl.TabIndex = 1;
             this.orderContentsLbl.Text = "Order Summary";
             // 
             // NewOrder
             // 
+            this.AcceptButton = this.addItemBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -265,7 +254,6 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button submitOrderBtn;
         private System.Windows.Forms.Label itemValidityMessage;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.MaskedTextBox jobCode;
         private System.Windows.Forms.MaskedTextBox itemNumber;
         private System.Windows.Forms.Label titleLbl;

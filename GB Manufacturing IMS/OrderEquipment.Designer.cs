@@ -39,6 +39,11 @@
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvPendingRental = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtQuantity = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblInformation = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splMainContainer)).BeginInit();
             this.splMainContainer.Panel1.SuspendLayout();
             this.splMainContainer.Panel2.SuspendLayout();
@@ -46,6 +51,7 @@
             this.tableOrderEquip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRental)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splMainContainer
@@ -58,6 +64,7 @@
             // 
             // splMainContainer.Panel1
             // 
+            this.splMainContainer.Panel1.Controls.Add(this.groupBox1);
             this.splMainContainer.Panel1.Controls.Add(this.tableOrderEquip);
             this.splMainContainer.Panel1.Controls.Add(this.lblTitle);
             // 
@@ -65,6 +72,7 @@
             // 
             this.splMainContainer.Panel2.Controls.Add(this.btnSubmitOrder);
             this.splMainContainer.Panel2.Controls.Add(this.panel1);
+            this.splMainContainer.Panel2.Controls.Add(this.button1);
             this.splMainContainer.Size = new System.Drawing.Size(800, 450);
             this.splMainContainer.SplitterDistance = 266;
             this.splMainContainer.TabIndex = 18;
@@ -72,28 +80,31 @@
             // tableOrderEquip
             // 
             this.tableOrderEquip.ColumnCount = 2;
-            this.tableOrderEquip.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableOrderEquip.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableOrderEquip.Controls.Add(this.btnAddItem, 1, 2);
-            this.tableOrderEquip.Controls.Add(this.txtJobCode, 1, 1);
-            this.tableOrderEquip.Controls.Add(this.lblScanItem, 0, 0);
-            this.tableOrderEquip.Controls.Add(this.lblJobCode, 0, 1);
-            this.tableOrderEquip.Controls.Add(this.txtScanItem, 1, 0);
-            this.tableOrderEquip.Location = new System.Drawing.Point(12, 78);
+            this.tableOrderEquip.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableOrderEquip.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableOrderEquip.Controls.Add(this.txtJobCode, 1, 0);
+            this.tableOrderEquip.Controls.Add(this.lblScanItem, 0, 1);
+            this.tableOrderEquip.Controls.Add(this.lblJobCode, 0, 0);
+            this.tableOrderEquip.Controls.Add(this.txtScanItem, 1, 1);
+            this.tableOrderEquip.Controls.Add(this.btnAddItem, 1, 3);
+            this.tableOrderEquip.Controls.Add(this.txtQuantity, 1, 2);
+            this.tableOrderEquip.Controls.Add(this.label1, 0, 2);
+            this.tableOrderEquip.Location = new System.Drawing.Point(12, 214);
             this.tableOrderEquip.Name = "tableOrderEquip";
-            this.tableOrderEquip.RowCount = 3;
-            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableOrderEquip.Size = new System.Drawing.Size(226, 108);
+            this.tableOrderEquip.RowCount = 4;
+            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableOrderEquip.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableOrderEquip.Size = new System.Drawing.Size(183, 117);
             this.tableOrderEquip.TabIndex = 20;
             // 
             // btnAddItem
             // 
             this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddItem.Location = new System.Drawing.Point(116, 80);
+            this.btnAddItem.Location = new System.Drawing.Point(67, 85);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(107, 23);
+            this.btnAddItem.Size = new System.Drawing.Size(113, 25);
             this.btnAddItem.TabIndex = 21;
             this.btnAddItem.TabStop = false;
             this.btnAddItem.Text = "Add Item";
@@ -103,20 +114,20 @@
             // txtJobCode
             // 
             this.txtJobCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtJobCode.Location = new System.Drawing.Point(116, 47);
+            this.txtJobCode.Location = new System.Drawing.Point(67, 3);
             this.txtJobCode.Mask = "00000";
             this.txtJobCode.Name = "txtJobCode";
-            this.txtJobCode.Size = new System.Drawing.Size(107, 20);
-            this.txtJobCode.TabIndex = 23;
+            this.txtJobCode.Size = new System.Drawing.Size(113, 20);
+            this.txtJobCode.TabIndex = 1;
             this.txtJobCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblScanItem
             // 
             this.lblScanItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblScanItem.AutoSize = true;
-            this.lblScanItem.Location = new System.Drawing.Point(3, 12);
+            this.lblScanItem.Location = new System.Drawing.Point(3, 32);
             this.lblScanItem.Name = "lblScanItem";
-            this.lblScanItem.Size = new System.Drawing.Size(107, 13);
+            this.lblScanItem.Size = new System.Drawing.Size(58, 13);
             this.lblScanItem.TabIndex = 19;
             this.lblScanItem.Text = "Scan Item:";
             this.lblScanItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,9 +136,9 @@
             // 
             this.lblJobCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblJobCode.AutoSize = true;
-            this.lblJobCode.Location = new System.Drawing.Point(3, 50);
+            this.lblJobCode.Location = new System.Drawing.Point(3, 6);
             this.lblJobCode.Name = "lblJobCode";
-            this.lblJobCode.Size = new System.Drawing.Size(107, 13);
+            this.lblJobCode.Size = new System.Drawing.Size(58, 13);
             this.lblJobCode.TabIndex = 20;
             this.lblJobCode.Text = "Job Code:";
             this.lblJobCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,11 +146,11 @@
             // txtScanItem
             // 
             this.txtScanItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtScanItem.Location = new System.Drawing.Point(116, 9);
+            this.txtScanItem.Location = new System.Drawing.Point(67, 29);
             this.txtScanItem.Mask = "000000";
             this.txtScanItem.Name = "txtScanItem";
-            this.txtScanItem.Size = new System.Drawing.Size(107, 20);
-            this.txtScanItem.TabIndex = 22;
+            this.txtScanItem.Size = new System.Drawing.Size(113, 20);
+            this.txtScanItem.TabIndex = 2;
             this.txtScanItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTitle
@@ -148,9 +159,9 @@
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(3, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(235, 36);
+            this.lblTitle.Size = new System.Drawing.Size(242, 36);
             this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "Order Equipment";
+            this.lblTitle.Text = "Equipment Rental";
             // 
             // btnSubmitOrder
             // 
@@ -180,7 +191,7 @@
             this.dgvPendingRental.AllowUserToAddRows = false;
             this.dgvPendingRental.AllowUserToResizeColumns = false;
             this.dgvPendingRental.AllowUserToResizeRows = false;
-            this.dgvPendingRental.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvPendingRental.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPendingRental.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPendingRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPendingRental.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -196,6 +207,59 @@
             this.dgvPendingRental.Size = new System.Drawing.Size(527, 395);
             this.dgvPendingRental.TabIndex = 0;
             this.dgvPendingRental.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(3, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 23);
+            this.button1.TabIndex = 22;
+            this.button1.TabStop = false;
+            this.button1.Text = "Clear All";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuantity.Location = new System.Drawing.Point(67, 55);
+            this.txtQuantity.Mask = "000000";
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(113, 20);
+            this.txtQuantity.TabIndex = 3;
+            this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Quantity";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInformation
+            // 
+            this.lblInformation.AutoSize = true;
+            this.lblInformation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblInformation.Location = new System.Drawing.Point(3, 16);
+            this.lblInformation.MaximumSize = new System.Drawing.Size(175, 150);
+            this.lblInformation.MinimumSize = new System.Drawing.Size(100, 100);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(100, 100);
+            this.lblInformation.TabIndex = 21;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblInformation);
+            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(179, 145);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information";
             // 
             // OrderEquipment
             // 
@@ -216,6 +280,8 @@
             this.tableOrderEquip.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRental)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -232,5 +298,10 @@
         private System.Windows.Forms.MaskedTextBox txtScanItem;
         private System.Windows.Forms.MaskedTextBox txtJobCode;
         private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox txtQuantity;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblInformation;
     }
 }

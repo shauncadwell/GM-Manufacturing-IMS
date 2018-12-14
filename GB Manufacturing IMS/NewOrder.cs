@@ -56,7 +56,7 @@ namespace GB_Manufacturing_IMS
         {
             // Get item descipriton and determine if itemNumber exists in the database
             string materialSearch = "SELECT description FROM Materials WHERE itemID = '" + itemNumber.Text + "' LIMIT 1";
-            string result = dbconn.getData(materialSearch);
+            string result = dbconn.getString(materialSearch);
 
             // Hanle no matching item found in database
             if (result == null)
@@ -65,8 +65,9 @@ namespace GB_Manufacturing_IMS
                 itemValidityMessage.Text = "Invalid Item Number";
                 itemValidityMessage.Visible = true;
                 itemValidityMessage.ForeColor = errorColor;
-                if (addItemBtn.Enabled == true)
-                    addItemBtn.Enabled = false;
+                itemQuantity.Clear();
+                itemNumber.Clear();
+                itemNumber.Select();
             }
             else
             {
@@ -76,28 +77,39 @@ namespace GB_Manufacturing_IMS
                 string itemDescription = result;
 
                 // Displays item in summary box and increments itemCount
-                if (Convert.ToInt32(itemQuantity.Text) < 1 || Convert.ToInt32(itemQuantity.Text) > 100)
+                try
                 {
-                    MessageBox.Show("Please enter an item quantity between 1 and 100.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                    // Add new order item to list
-                    orderInfo.Add(new TempOrderInfo()
+                    if (Convert.ToInt32(itemQuantity.Text) < 1 || Convert.ToInt32(itemQuantity.Text) > 100)
                     {
-                        itemNumber = Convert.ToInt32(itemNumber.Text),
-                        jobCode = Convert.ToInt32(jobCode.Text),
-                        description = itemDescription,
-                        quantity = Convert.ToInt32(itemQuantity.Text)
-                    });
+                        MessageBox.Show("Please enter an item quantity between 1 and 100.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        // Add new order item to list
+                        orderInfo.Add(new TempOrderInfo()
+                        {
+                            itemNumber = Convert.ToInt32(itemNumber.Text),
+                            jobCode = Convert.ToInt32(jobCode.Text),
+                            description = itemDescription,
+                            quantity = Convert.ToInt32(itemQuantity.Text)
+                        });
 
-                    // Add item to data grid view
-                    TempOrderInfo lastEntry = orderInfo.Last();
-                    orderSummaryTable.Rows.Add(lastEntry.itemNumber, lastEntry.description, lastEntry.quantity);
+                        // Add item to data grid view
+                        TempOrderInfo lastEntry = orderInfo.Last();
+                        orderSummaryTable.Rows.Add(lastEntry.itemNumber, lastEntry.description, lastEntry.quantity);
 
-                    submitOrderBtn.Enabled = true;
-                    cancelBtn.Enabled = true;
+                        submitOrderBtn.Enabled = true;
+                        cancelBtn.Enabled = true;
+                        itemNumber.Clear();
+                        itemQuantity.Clear();
+                        itemNumber.Select();
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 
@@ -105,10 +117,10 @@ namespace GB_Manufacturing_IMS
          *  ***************************************/
         private void submitOrderBtn_Click(object sender, EventArgs e)
         {
-            int employeeID = 1;     // Get from stored variable when login working
+            int employeeID = currentUser.getID();     // Get from stored variable when login working
 
             string findMaxIDQuery = "SELECT MAX(orderID) FROM MaterialOrder LIMIT 1";
-            string maxOrderID = dbconn.getData(findMaxIDQuery);
+            string maxOrderID = dbconn.getString(findMaxIDQuery);
             int orderID = Convert.ToInt32(maxOrderID) + 1;
 
             foreach (TempOrderInfo item in orderInfo)
@@ -161,5 +173,7 @@ namespace GB_Manufacturing_IMS
         {
             addItemBtn.Enabled = true;
         }
+
+
     }
 }

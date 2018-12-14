@@ -14,11 +14,25 @@ namespace GB_Manufacturing_IMS
     {
         projectDB db = new projectDB();
         user currentUser = new user();
+        DataTable dt = new DataTable();
+        int count = 0;
+        //create lists for each column
+        private List<TempOrderInfo> orderInfo = new List<TempOrderInfo>();
+
 
         public OrderEquipment(user clone)
         {
             InitializeComponent();
             currentUser = clone;
+           
+            loadTable();
+        }
+
+        public OrderEquipment(user clone, List<TempOrderInfo> order)
+        {
+            InitializeComponent();
+            currentUser = clone;
+            orderInfo = order;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -28,28 +42,105 @@ namespace GB_Manufacturing_IMS
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+
             //Verify item and quantity are available in database and required rank
-            string query = "SELECT count(*) FROM information_schema.columns WHERE table_name = 'Equipment'";
-            int colCount = Convert.ToInt32(db.getData(query));
-            DataGridViewLinkColumn link = new DataGridViewLinkColumn();
-            dgvPendingRental.Columns.Add(link);
+            try
+            {
+            string quantityReq = txtQuantity.Text;
+                int currentQuantity = db.getInt("SELECT available FROM Equipment WHERE equipmentID =" + txtScanItem.Text + ";");
 
+            int newQuantity = currentQuantity - Convert.ToInt32(quantityReq);
+                if (newQuantity < 0)
+                {
+                    lblInformation.Text = "Not enough inventory to supply this order. \n\nContact Warehouse Personel or Inventory Management.";
+                    lblInformation.ForeColor = Color.Red;
+                    return;
+                }
 
+                string eqDescription = db.getString("SELECT description FROM Equipment WHERE equipmentID ='" + txtScanItem.Text + "';");
+                
 
-            MessageBox.Show("info" + colCount);
+            string query = "SELECT equipmentID FROM Equipment WHERE (equipmentID = '"
+            + txtScanItem.Text+"' AND equipmentStatus ='In Stock' AND requiredRank <='" 
+            + currentUser.getRank()+ "' AND available>='"+quantityReq+"');";
 
+        
+             //If item is found:
+            if (db.getBool(query, true))
+                {
+                        lblInformation.Text = "Item number: [" +txtScanItem.Text+ "]\n\nQuantity: ["+quantityReq+"] successfully added.";
+                        lblInformation.ForeColor = Color.Blue;
 
+                        // Add new order item to list
+                        orderInfo.Add(new TempOrderInfo()
+                        {
+                            itemNumber = Convert.ToInt32(txtScanItem.Text),
+                            jobCode = Convert.ToInt32(txtJobCode.Text),
+                            description = eqDescription,
+                            quantity = Convert.ToInt32(txtQuantity.Text)
+                        });
 
+                        // Add item to data grid view
+                        TempOrderInfo lastEntry = orderInfo.Last();
+                        dt.Rows.Add(lastEntry.itemNumber, lastEntry.description, lastEntry.quantity);    
 
-            this.dgvPendingRental.Rows.Add("Five", "six", "seven", "eight", "[X]");
+            }
+            else
+            {
+                lblInformation.Text = "Unable to add item. \nThis error will occur if the item is not in stock or does not exist. \n\n\nStock amount: " + currentQuantity + ". \n\n\nContact warehouse management if this problem persists.";
+                lblInformation.ForeColor = Color.Red;          
+            }
+                      
             //Add item to datagridview list to be put in pending
 
 
-            
+            //Select field
+
+            txtScanItem.Clear();
+            txtScanItem.Select();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            count++;
         }
 
         private void btnSubmitOrder_Click(object sender, EventArgs e)
         {
+
+            int employeeID = currentUser.getID();     // Get from stored variable when login working
+
+            string findMaxIDQuery = "SELECT MAX(rentalID) FROM EquipmentRental LIMIT 1";
+            string maxOrderID = db.getString(findMaxIDQuery);
+            int orderID = Convert.ToInt32(maxOrderID) + 1;
+
+            foreach (TempOrderInfo item in orderInfo)
+            {
+                int setAvailable = (Convert.ToInt32(db.getInt("SELECT available FROM Equipment WHERE equipmentID='" + item.itemNumber + "';") - Convert.ToInt32(item.quantity)));
+                string insertQuery = "INSERT INTO EquipmentRental (rentalID, rentalDate, rentalDue, employeeID, equipmentID, quantity, jobCode) " +
+                                    "VALUES(" + orderID + ", CURDATE(), NOW()+INTERVAL 7 DAY,'" + employeeID + "'," + item.itemNumber + ", " + item.quantity + ", " + item.jobCode + "); ";
+                           db.Update("UPDATE Equipment SET available = '" + setAvailable.ToString() + "' WHERE equipmentID= '"+ item.itemNumber + "';");
+
+                //If equipment availability is 0 then set to Out of Stock
+                if (setAvailable == 0)
+                {
+                    db.Insert("UPDATE Equipment SET equipmentStatus = 'Out of Stock' WHERE equipmentID = '" + item.itemNumber + "'");
+                }
+
+                bool querySuccess = db.Insert(insertQuery); // Error here - runQuery always returns true but insert is failing
+
+                // Handle query failure
+                if (!querySuccess)
+                {
+                    MessageBox.Show("Failed to place order. Please contact system administrator if problem persists.", "Order Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;  // Kick out of for loop if error encountered
+                }
+            }
+
+            MessageBox.Show("Order placed successfully.", "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            resetAll();
             //Reduce available to available -quantity on Equipment table
 
 
@@ -58,7 +149,7 @@ namespace GB_Manufacturing_IMS
 
             /*Create findMaxIDQuery = "SELECT MAX(orderID) FROM MaterialOrder LIMIT 1";
              * 
-                string maxOrderID = dbconn.getData(findMaxIDQuery);
+                string maxOrderID = dbconn.getString(findMaxIDQuery);
 
                 int orderID = Convert.ToInt32(maxOrderID) + 1
 
@@ -71,12 +162,24 @@ namespace GB_Manufacturing_IMS
 
         private void OrderEquipment_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("This section is not yet available. Functions have not yet been implemented.", "Section Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dgvPendingRental.Columns.Clear();
-            dgvPendingRental.Columns.Add("equipmentID", "Item Number");
-            dgvPendingRental.Columns.Add("description", "Description");
-            dgvPendingRental.Columns.Add("equipmentStatus", "Status");
-            dgvPendingRental.Columns.Add("quantity", "Quantity");
+
+        }
+
+        private void loadTable()
+        {
+
+            dt.Columns.Add("Item Number", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Quantity", typeof(string));
+
+
+            dgvPendingRental.DataSource = dt;    // Populate table headers
+           
+        }
+
+        private void resetAll()
+        {
+           // dgvPendingRental.Rows.Clear();
         }
     }
 }

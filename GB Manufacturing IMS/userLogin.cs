@@ -22,7 +22,7 @@ namespace GB_Manufacturing_IMS
 
         private void login_Load(object sender, EventArgs e)
         {
-            //Check if ANY users exist.
+            //Check if ANY users exist exit if program does not detect network to prevent exploit.
             bool ping = db.PingHost("104.248.117.10");
             if (ping == false)
             {
@@ -30,7 +30,7 @@ namespace GB_Manufacturing_IMS
                 Application.Exit();
             }
             string query = "SELECT MAX(employeeID) FROM Employees";
-            string result = db.getData(query);
+            string result = db.getString(query);
             if (result == "1")
             {
                 MessageBox.Show("No users were found in the system. Contact Technicial Support. If this is a new install, please enter default credentials below.");
@@ -82,20 +82,25 @@ namespace GB_Manufacturing_IMS
             {
                 //See if username and password match on database
                 string query = "SELECT employeeID FROM Employees WHERE username='" + userID + "' AND userPass ='" + password + "';";
-                verified = db.getData(query, true);
+                verified = db.getBool(query, true);
 
                 if (verified)
                 {
                     //Set user information
-                    uid = Convert.ToInt32(db.getData("SELECT employeeID FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
-                    rank = Convert.ToInt32(db.getData("SELECT rank FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
-                    fname = db.getData("SELECT firstName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
-                    lname = db.getData("SELECT lastName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
-                    employmentStatus = db.getData("SELECT employeeStatus FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    uid = Convert.ToInt32(db.getString("SELECT employeeID FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
+                    rank = Convert.ToInt32(db.getString("SELECT rank FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
+                    fname = db.getString("SELECT firstName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    lname = db.getString("SELECT lastName FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
+                    employmentStatus = db.getString("SELECT employeeStatus FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; ");
                     username = txtEmpID.Text;
                     currentUser.set(uid, rank, fname, lname, employmentStatus, username);
                     //verify everything worked
 
+                    if (employmentStatus != "Active")
+                    {
+                        lblError.Visible = true;
+                        return false;
+                    }
                     //Proceed with login
                     Main form = new Main(currentUser);
                     form.Show();

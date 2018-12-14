@@ -81,7 +81,7 @@
             this.btnOrderEquipment.Name = "btnOrderEquipment";
             this.btnOrderEquipment.Size = new System.Drawing.Size(259, 120);
             this.btnOrderEquipment.TabIndex = 3;
-            this.btnOrderEquipment.Text = "Order Equipment";
+            this.btnOrderEquipment.Text = "Equipment Rental";
             this.btnOrderEquipment.UseVisualStyleBackColor = false;
             this.btnOrderEquipment.Click += new System.EventHandler(this.btnOrderEquipment_Click);
             // 

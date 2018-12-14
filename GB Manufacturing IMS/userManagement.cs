@@ -10,19 +10,35 @@ using System.Windows.Forms;
 
 namespace GB_Manufacturing_IMS
 {
+
+
     public partial class userManagement : Form
     {
+
+        int requiredRank = 4;
+
+
         //Establish user and database connections
         user currentUser = new user();
         projectDB db = new projectDB();
-        public int selectedID;
+        private int selectedID;
         public userManagement(user clone)
         {
             InitializeComponent();
             currentUser = clone;
-            refreshTable();         
+            refreshTable();
+            fillcombo(cbRank);
+
+
         }
 
+        private void fillcombo(ComboBox cb)
+        {
+            for (int i = 0; i<=currentUser.getRank(); i++)
+            {
+                cb.Items.Add(i);
+            }
+        }
         private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
         {
             if (txtSearchEmployee.Text != null)
@@ -127,9 +143,23 @@ namespace GB_Manufacturing_IMS
             DialogResult result = MessageBox.Show("Are you sure you want to reset this users password?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                //get random number
+                Random random = new Random();
+                int num = random.Next(1000, 1999);
                 //Force user to create new password next time he logs in.
+                string newpassword = "password" + num.ToString();
+                string encryptedPW = db.encrypt(newpassword);
+                string query = "UPDATE Employees SET userPass ='"+ encryptedPW +"', isPassReset ='2' WHERE employeeID = "+ selectedID +";";
 
-                MessageBox.Show("Not yet implemented.");
+                if (db.Update(query))
+                    {
+                    MessageBox.Show("Password has been reset to a default password. The user will be prompted to change password at next login. New password is: " + newpassword);
+                    }
+                else
+                {
+                    MessageBox.Show("An error occurred while resetting the password. Contact technicial support.");
+                }
+
             }
         }
 
@@ -144,18 +174,6 @@ namespace GB_Manufacturing_IMS
 
             //set selected out of range as precaution
             selectedID = 999999;
-
-            //Disable controls
-            txtFirst.Enabled = false;
-            txtLast.Enabled = false;
-            txtUsername.Enabled = false;
-            cbRank.Enabled = false;
-            cboStatus.Enabled = false;
-
-            //reset buttons
-            btnUpdate.Enabled = false;
-            btnResetPw.Enabled = false;
-
 
             //select search field
             txtSearchEmployee.Select();
@@ -206,6 +224,11 @@ namespace GB_Manufacturing_IMS
 
        
 
+        }
+
+        private void userManagement_Load(object sender, EventArgs e)
+        {
+            currentUser.verifyRank(requiredRank, this);
         }
     }
 }

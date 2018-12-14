@@ -38,19 +38,14 @@ namespace GB_Manufacturing_IMS
             this.dgvSearchEmployees = new System.Windows.Forms.DataGridView();
             this.grpEmployeeInfo = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblEditUsername = new System.Windows.Forms.LinkLabel();
-            this.lnkEditLast = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtLast = new System.Windows.Forms.TextBox();
-            this.lnkEditFirst = new System.Windows.Forms.LinkLabel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.lnkEditStatus = new System.Windows.Forms.LinkLabel();
             this.cbRank = new System.Windows.Forms.ComboBox();
-            this.lnkEditRank = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnResetPw = new System.Windows.Forms.Button();
@@ -59,11 +54,14 @@ namespace GB_Manufacturing_IMS
             this.lblID = new System.Windows.Forms.Label();
             this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupInfo = new System.Windows.Forms.GroupBox();
             this.lblAddNew = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.cbAddRank = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.cbNewStatus = new System.Windows.Forms.ComboBox();
             this.groupInitial = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,9 +75,6 @@ namespace GB_Manufacturing_IMS
             this.txtAddFName = new System.Windows.Forms.TextBox();
             this.txtAddLName = new System.Windows.Forms.TextBox();
             this.btnAddNewUser = new System.Windows.Forms.Button();
-            this.groupInfo = new System.Windows.Forms.GroupBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.cbNewStatus = new System.Windows.Forms.ComboBox();
             this.employeeTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchEmployees)).BeginInit();
@@ -165,19 +160,14 @@ namespace GB_Manufacturing_IMS
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.lblEditUsername, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lnkEditLast, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtFirst, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtLast, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lnkEditFirst, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnUpdate, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.cboStatus, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.lnkEditStatus, 2, 4);
             this.tableLayoutPanel2.Controls.Add(this.cbRank, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.lnkEditRank, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnResetPw, 0, 5);
@@ -195,30 +185,7 @@ namespace GB_Manufacturing_IMS
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(284, 276);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // lblEditUsername
-            // 
-            this.lblEditUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEditUsername.AutoSize = true;
-            this.lblEditUsername.Location = new System.Drawing.Point(255, 106);
-            this.lblEditUsername.Name = "lblEditUsername";
-            this.lblEditUsername.Size = new System.Drawing.Size(25, 13);
-            this.lblEditUsername.TabIndex = 16;
-            this.lblEditUsername.TabStop = true;
-            this.lblEditUsername.Text = "Edit";
-            this.lblEditUsername.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEditUsername_LinkClicked);
-            // 
-            // lnkEditLast
-            // 
-            this.lnkEditLast.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lnkEditLast.AutoSize = true;
-            this.lnkEditLast.Location = new System.Drawing.Point(255, 61);
-            this.lnkEditLast.Name = "lnkEditLast";
-            this.lnkEditLast.Size = new System.Drawing.Size(25, 13);
-            this.lnkEditLast.TabIndex = 9;
-            this.lnkEditLast.TabStop = true;
-            this.lnkEditLast.Text = "Edit";
-            this.lnkEditLast.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditLast_LinkClicked);
+            this.tableLayoutPanel2.TabStop = true;
             // 
             // label2
             // 
@@ -226,7 +193,7 @@ namespace GB_Manufacturing_IMS
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.Size = new System.Drawing.Size(136, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "First";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,7 +204,7 @@ namespace GB_Manufacturing_IMS
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 13);
+            this.label3.Size = new System.Drawing.Size(136, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Last";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -245,44 +212,26 @@ namespace GB_Manufacturing_IMS
             // txtFirst
             // 
             this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirst.Enabled = false;
-            this.txtFirst.Location = new System.Drawing.Point(129, 12);
+            this.txtFirst.Location = new System.Drawing.Point(145, 12);
             this.txtFirst.Name = "txtFirst";
-            this.txtFirst.Size = new System.Drawing.Size(120, 20);
+            this.txtFirst.Size = new System.Drawing.Size(136, 20);
             this.txtFirst.TabIndex = 2;
-            this.txtFirst.TabStop = false;
             // 
             // txtLast
             // 
             this.txtLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLast.Enabled = false;
-            this.txtLast.Location = new System.Drawing.Point(129, 57);
+            this.txtLast.Location = new System.Drawing.Point(145, 57);
             this.txtLast.Name = "txtLast";
-            this.txtLast.Size = new System.Drawing.Size(120, 20);
+            this.txtLast.Size = new System.Drawing.Size(136, 20);
             this.txtLast.TabIndex = 3;
-            this.txtLast.TabStop = false;
-            // 
-            // lnkEditFirst
-            // 
-            this.lnkEditFirst.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lnkEditFirst.AutoSize = true;
-            this.lnkEditFirst.Location = new System.Drawing.Point(255, 16);
-            this.lnkEditFirst.Name = "lnkEditFirst";
-            this.lnkEditFirst.Size = new System.Drawing.Size(25, 13);
-            this.lnkEditFirst.TabIndex = 8;
-            this.lnkEditFirst.TabStop = true;
-            this.lnkEditFirst.Text = "Edit";
-            this.lnkEditFirst.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditFirst_LinkClicked);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(129, 239);
+            this.btnUpdate.Location = new System.Drawing.Point(145, 239);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(136, 23);
             this.btnUpdate.TabIndex = 4;
-            this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update Changes";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -293,7 +242,7 @@ namespace GB_Manufacturing_IMS
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.Size = new System.Drawing.Size(136, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Employment Status";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -302,62 +251,27 @@ namespace GB_Manufacturing_IMS
             // 
             this.cboStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Enabled = false;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive",
             "Suspended",
             "Terminated"});
-            this.cboStatus.Location = new System.Drawing.Point(129, 192);
+            this.cboStatus.Location = new System.Drawing.Point(145, 192);
             this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(120, 21);
-            this.cboStatus.TabIndex = 7;
-            this.cboStatus.TabStop = false;
+            this.cboStatus.Size = new System.Drawing.Size(136, 21);
+            this.cboStatus.TabIndex = 6;
             this.cboStatus.DisplayMemberChanged += new System.EventHandler(this.cboStatus_DisplayMemberChanged);
-            // 
-            // lnkEditStatus
-            // 
-            this.lnkEditStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lnkEditStatus.AutoSize = true;
-            this.lnkEditStatus.Location = new System.Drawing.Point(255, 196);
-            this.lnkEditStatus.Name = "lnkEditStatus";
-            this.lnkEditStatus.Size = new System.Drawing.Size(25, 13);
-            this.lnkEditStatus.TabIndex = 11;
-            this.lnkEditStatus.TabStop = true;
-            this.lnkEditStatus.Text = "Edit";
-            this.lnkEditStatus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditStatus_LinkClicked);
             // 
             // cbRank
             // 
             this.cbRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRank.Enabled = false;
             this.cbRank.FormattingEnabled = true;
-            this.cbRank.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cbRank.Location = new System.Drawing.Point(129, 147);
+            this.cbRank.Location = new System.Drawing.Point(145, 147);
             this.cbRank.Name = "cbRank";
-            this.cbRank.Size = new System.Drawing.Size(120, 21);
-            this.cbRank.TabIndex = 12;
-            this.cbRank.TabStop = false;
-            // 
-            // lnkEditRank
-            // 
-            this.lnkEditRank.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lnkEditRank.AutoSize = true;
-            this.lnkEditRank.Location = new System.Drawing.Point(255, 151);
-            this.lnkEditRank.Name = "lnkEditRank";
-            this.lnkEditRank.Size = new System.Drawing.Size(25, 13);
-            this.lnkEditRank.TabIndex = 10;
-            this.lnkEditRank.TabStop = true;
-            this.lnkEditRank.Text = "Edit";
-            this.lnkEditRank.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditRank_LinkClicked);
+            this.cbRank.Size = new System.Drawing.Size(136, 21);
+            this.cbRank.TabIndex = 5;
             // 
             // label4
             // 
@@ -365,7 +279,7 @@ namespace GB_Manufacturing_IMS
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 151);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 13);
+            this.label4.Size = new System.Drawing.Size(136, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Rank";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,7 +290,7 @@ namespace GB_Manufacturing_IMS
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 106);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 13);
+            this.label5.Size = new System.Drawing.Size(136, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Username";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,7 +301,7 @@ namespace GB_Manufacturing_IMS
             this.btnResetPw.Enabled = false;
             this.btnResetPw.Location = new System.Drawing.Point(3, 239);
             this.btnResetPw.Name = "btnResetPw";
-            this.btnResetPw.Size = new System.Drawing.Size(120, 23);
+            this.btnResetPw.Size = new System.Drawing.Size(136, 23);
             this.btnResetPw.TabIndex = 14;
             this.btnResetPw.TabStop = false;
             this.btnResetPw.Text = "Reset Password";
@@ -397,12 +311,10 @@ namespace GB_Manufacturing_IMS
             // txtUsername
             // 
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(129, 102);
+            this.txtUsername.Location = new System.Drawing.Point(145, 102);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(120, 20);
+            this.txtUsername.Size = new System.Drawing.Size(136, 20);
             this.txtUsername.TabIndex = 4;
-            this.txtUsername.TabStop = false;
             // 
             // tblSearchEmp
             // 
@@ -452,6 +364,15 @@ namespace GB_Manufacturing_IMS
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add New User";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupInfo
+            // 
+            this.groupInfo.Location = new System.Drawing.Point(349, 44);
+            this.groupInfo.Name = "groupInfo";
+            this.groupInfo.Size = new System.Drawing.Size(301, 138);
+            this.groupInfo.TabIndex = 25;
+            this.groupInfo.TabStop = false;
+            this.groupInfo.Text = "Info Box";
             // 
             // lblAddNew
             // 
@@ -516,6 +437,31 @@ namespace GB_Manufacturing_IMS
             this.cbAddRank.Name = "cbAddRank";
             this.cbAddRank.Size = new System.Drawing.Size(123, 21);
             this.cbAddRank.TabIndex = 3;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(3, 48);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(122, 13);
+            this.lblStatus.TabIndex = 4;
+            this.lblStatus.Text = "Employment Status";
+            // 
+            // cbNewStatus
+            // 
+            this.cbNewStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbNewStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNewStatus.FormattingEnabled = true;
+            this.cbNewStatus.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "Suspended",
+            "Terminated"});
+            this.cbNewStatus.Location = new System.Drawing.Point(131, 44);
+            this.cbNewStatus.Name = "cbNewStatus";
+            this.cbNewStatus.Size = new System.Drawing.Size(123, 21);
+            this.cbNewStatus.TabIndex = 4;
             // 
             // groupInitial
             // 
@@ -665,40 +611,6 @@ namespace GB_Manufacturing_IMS
             this.btnAddNewUser.UseVisualStyleBackColor = true;
             this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
-            // groupInfo
-            // 
-            this.groupInfo.Location = new System.Drawing.Point(349, 44);
-            this.groupInfo.Name = "groupInfo";
-            this.groupInfo.Size = new System.Drawing.Size(301, 138);
-            this.groupInfo.TabIndex = 25;
-            this.groupInfo.TabStop = false;
-            this.groupInfo.Text = "Info Box";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(3, 48);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(122, 13);
-            this.lblStatus.TabIndex = 4;
-            this.lblStatus.Text = "Employment Status";
-            // 
-            // cbNewStatus
-            // 
-            this.cbNewStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbNewStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNewStatus.FormattingEnabled = true;
-            this.cbNewStatus.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "Suspended",
-            "Terminated"});
-            this.cbNewStatus.Location = new System.Drawing.Point(131, 44);
-            this.cbNewStatus.Name = "cbNewStatus";
-            this.cbNewStatus.Size = new System.Drawing.Size(123, 21);
-            this.cbNewStatus.TabIndex = 4;
-            // 
             // userManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,6 +619,7 @@ namespace GB_Manufacturing_IMS
             this.Controls.Add(this.employeeTabs);
             this.Name = "userManagement";
             this.Text = "User Management";
+            this.Load += new System.EventHandler(this.userManagement_Load);
             this.employeeTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -744,9 +657,6 @@ namespace GB_Manufacturing_IMS
         private System.Windows.Forms.TableLayoutPanel tblSearchEmp;
         private System.Windows.Forms.GroupBox grpEmployeeInfo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.LinkLabel lnkEditStatus;
-        private System.Windows.Forms.LinkLabel lnkEditRank;
-        private System.Windows.Forms.LinkLabel lnkEditLast;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -754,7 +664,6 @@ namespace GB_Manufacturing_IMS
         private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.TextBox txtLast;
         private System.Windows.Forms.ComboBox cboStatus;
-        private System.Windows.Forms.LinkLabel lnkEditFirst;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblAddNew;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -772,7 +681,6 @@ namespace GB_Manufacturing_IMS
         private System.Windows.Forms.ComboBox cbRank;
         private System.Windows.Forms.DataGridView dgvSearchEmployees;
         private System.Windows.Forms.TextBox txtSearchEmployee;
-        private System.Windows.Forms.LinkLabel lblEditUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnResetPw;
         private System.Windows.Forms.TextBox txtUsername;

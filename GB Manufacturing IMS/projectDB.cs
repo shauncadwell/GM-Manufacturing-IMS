@@ -209,7 +209,7 @@ namespace GB_Manufacturing_IMS
             }
         }
 
-        public string getData(string query)
+        public string getString(string query)
         {
 
             string data;
@@ -242,11 +242,10 @@ namespace GB_Manufacturing_IMS
             }    
             return null;
             }
-
-        public bool getData(string query, bool requireBool)
+        public int getInt(string query)
         {
 
-            string data;
+            int data;
             if (this.OpenConnection() == true)
             {
                 try
@@ -261,7 +260,41 @@ namespace GB_Manufacturing_IMS
                     cmd.Connection = connection;
 
                     //Execute query
-                    data = cmd.ExecuteScalar().ToString();
+                    data =Convert.ToInt32(cmd.ExecuteScalar());
+
+                    //close connection
+                    this.CloseConnection();
+                    return data;
+                }
+                catch
+                {
+                    this.CloseConnection();
+                    return 0;
+                }
+
+            }
+            return 0;
+        }
+
+        public bool getBool(string query, bool requireBool)
+        {
+
+  
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    cmd.ExecuteScalar();
 
                     //close connection
                     this.CloseConnection();
