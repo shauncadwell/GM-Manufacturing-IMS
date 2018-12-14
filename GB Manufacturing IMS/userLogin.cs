@@ -23,7 +23,7 @@ namespace GB_Manufacturing_IMS
         private void login_Load(object sender, EventArgs e)
         {
             //Check if ANY users exist.
-            bool ping = db.PingHost("127.0.0.1");
+            bool ping = db.PingHost("104.248.117.10");
             if (ping == false)
             {
                 MessageBox.Show("No network detected. Program will close.");

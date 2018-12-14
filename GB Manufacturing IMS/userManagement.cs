@@ -27,7 +27,7 @@ namespace GB_Manufacturing_IMS
         {
             if (txtSearchEmployee.Text != null)
             {
-                string query = "SELECT employeeID, firstName, lastName, username, rank, employeeStatus FROM Employees WHERE firstName LIKE '%" + txtSearchEmployee.Text + "%'";
+                string query = "SELECT employeeID,  firstName, lastName, username, rank, employeeStatus FROM Employees WHERE CONCAT(firstName, ' ', lastName) LIKE '%" + txtSearchEmployee.Text + "%' OR lastName LIKE '%" + txtSearchEmployee.Text + "%'";
 
                 db.fill(dgvSearchEmployees, query);
                            
