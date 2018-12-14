@@ -15,6 +15,7 @@ namespace GB_Manufacturing_IMS
         projectDB db = new projectDB();
         user currentUser = new user();
         DataTable dt = new DataTable();
+        DataTable searchDT = new DataTable();
         int count = 0;
         //create lists for each column
         private List<TempOrderInfo> orderInfo = new List<TempOrderInfo>();
@@ -42,7 +43,6 @@ namespace GB_Manufacturing_IMS
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-
             //Verify item and quantity are available in database and required rank
             try
             {
@@ -162,24 +162,58 @@ namespace GB_Manufacturing_IMS
 
         private void OrderEquipment_Load(object sender, EventArgs e)
         {
+            dt.Columns.Add("Item Number", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Quantity", typeof(string));
 
+            searchDT.Columns.Add("Item Number", typeof(string));
+            searchDT.Columns.Add("Description", typeof(string));
+            searchDT.Columns.Add("Quantity", typeof(string));
         }
 
         private void loadTable()
         {
 
-            dt.Columns.Add("Item Number", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
-            dt.Columns.Add("Quantity", typeof(string));
+
 
 
             dgvPendingRental.DataSource = dt;    // Populate table headers
-           
+            dgvSearch.DataSource = searchDT;
+
+            string query = "SELECT equipmentID AS Equipment, description AS Description, available AS Available FROM Equipment WHERE (location = 'Warehouse 1' AND equipmentStatus = 'In Stock')";
+
+            db.fill(dgvSearch, query);
         }
 
         private void resetAll()
         {
-           // dgvPendingRental.Rows.Clear();
+            DialogResult result = MessageBox.Show("Are you sure you want to clear this order?", "Clear Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+            {
+            orderInfo.Clear();
+            dt.Clear();
+                lblInformation.Text = null;
+            }
+   
+
+        }
+
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT equipmentID AS Equipment, description AS Description, available AS Available FROM Equipment WHERE (location = 'Warehouse 1' AND equipmentStatus = 'In Stock')";
+            if (txtSearch.Text == null)
+            {
+                db.fill(dgvSearch, query);
+            }
+             query = "SELECT equipmentID AS Equipment, description AS Description, available AS Available FROM Equipment WHERE (location = 'Warehouse 1' AND equipmentStatus = 'In Stock' AND description LIKE '%"+ txtSearch.Text +"%')";
+            db.fill(dgvSearch, query);
+
+        }
+
+        private void btnClearOrder_Click(object sender, EventArgs e)
+        {
+            resetAll();
         }
     }
 }
