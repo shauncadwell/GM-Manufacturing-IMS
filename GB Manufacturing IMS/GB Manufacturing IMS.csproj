@@ -76,6 +76,12 @@
       <DependentUpon>addInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="appForm.cs" />
+    <Compile Include="EquipReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipReturn.Designer.cs">
+      <DependentUpon>EquipReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="userManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="addInventory.resx">
       <DependentUpon>addInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipReturn.resx">
+      <DependentUpon>EquipReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userManagement.resx">
       <DependentUpon>userManagement.cs</DependentUpon>

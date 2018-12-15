@@ -107,6 +107,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.txtKeyword);
             this.splitContainer1.Panel1.Controls.Add(this.btnSubmit);
             this.splitContainer1.Panel1.Controls.Add(this.lblKeyword);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
