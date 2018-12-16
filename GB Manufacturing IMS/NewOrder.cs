@@ -194,8 +194,8 @@ namespace GB_Manufacturing_IMS
          *  ***************************************/
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchDescription = searchBox.Text;
-            string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE location = 'Warehouse 1' AND description LIKE '%"+ searchDescription + "%';";
+            string itemSearch = searchBox.Text;
+            string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE location = 'Warehouse 1' AND CONCAT(itemID, description) LIKE '%" + itemSearch + "%'";
             dbconn.fill(intentoryTable, query);
         }
 
@@ -205,6 +205,8 @@ namespace GB_Manufacturing_IMS
         {
             string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE (location = 'Warehouse 1' AND currentStock > 0)";
             dbconn.fill(intentoryTable, query);
+
+            searchBox.Text = "";
         }
 
         /*  Populates item number when item clicked
