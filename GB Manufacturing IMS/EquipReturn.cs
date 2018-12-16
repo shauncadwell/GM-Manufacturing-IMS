@@ -117,21 +117,26 @@ namespace GB_Manufacturing_IMS
             string insert4 = dgReturnJob.SelectedCells[0].Value.ToString();
             string insert5 = dgReturnRID.SelectedCells[0].Value.ToString();
 
-            string isReturnedChk = "SELECT returnDate FROM EquipmentRental WHERE equipmentID LIKE '%" + insert2 + "%' AND employeeID LIKE '%" + insert3 + "%' AND jobCode LIKE '%" + insert4 + "%'";
-
             try
             {
-                if (isReturnedChk != null)
+                /*
+                string isReturnedChk = "SELECT returnDate FROM EquipmentRental WHERE equipmentID LIKE '%" + insert2 + "%' AND employeeID LIKE '%" + insert3 + "%' AND jobCode LIKE '%" + insert4 + "%' AND rentalID LIKE '%" + insert5 + "%'";
+                string checkReturn = mydb.getString(isReturnedChk);
+
+                if (checkReturn != null)
                 {
+                */
                     string query3 = "UPDATE CEIS400.EquipmentRental SET returnDate=NOW() WHERE equipmentID='" + insert2 + "' AND employeeID='" + insert3 + "' AND jobCode='" + insert4 + "' AND rentalID='" + insert5 + "'";
                     mydb.Update(query3);
                     string query4 = "UPDATE CEIS400.Equipment SET available=available+1 WHERE equipmentStatus='" + insert1 + "' AND equipmentID= '" + insert2 + "'";
                     mydb.Update(query4);
+                /*
                 }
                 else
                 {
                     MessageBox.Show("This item has already been returned.");
                 }
+                */
              }
 
             catch (Exception ex)
@@ -139,12 +144,6 @@ namespace GB_Manufacturing_IMS
                 MessageBox.Show(ex.Message);
             }
             
-            //Query sent to DB to add item back to stock depending on Status
-            /*
-            
-            */
-            //mydb.fill(dgReturnJob, query2);
-
             //Empties field so it is ready for another return
             lblChkBox1.Text = "";
             lblChkBox2.Text = "";
