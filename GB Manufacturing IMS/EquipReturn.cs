@@ -65,13 +65,16 @@ namespace GB_Manufacturing_IMS
                             break;
                         }
                 }
+                //Clears left side and populates right side for confirmation.
                 comboStatus.Text = "";
                 lblChkBox2.Text = txtReturnItem.Text;
                 txtReturnItem.Text = "";
-
-                string input = lblChkBox2.Text;
-                string query = "SELECT jobCode FROM EquipmentRental WHERE equipmentID = " + input + "";
-                mydb.fill(dgReturnJob, query);
+                
+                //MySQL query to pull Job Code to confirm which item you are returning.
+                //This step is to insure the User does not accidentally return the wrong item.
+                string input1 = lblChkBox2.Text;
+                string query1 = "SELECT jobCode FROM EquipmentRental WHERE equipmentID = " + input1 + "";
+                mydb.fill(dgReturnJob, query1);
                 lblReturnError.Text = "";
             }
             else
@@ -93,11 +96,19 @@ namespace GB_Manufacturing_IMS
         private void btnReturnConfirm_Click(object sender, EventArgs e)
         {
             //Query sent to DB to add item back to stock depending on Status
-
+            /*
+            string input2 = lblChkBox1.Text;
+            string input3 = lblChkBox2.Text;
+            string query2 = "SELECT jobCode FROM EquipmentRental WHERE equipmentID = " + input1 + "";
+            */
+            //mydb.fill(dgReturnJob, query2);
+            //lblReturnError.Text = "";
+            
             //Empties field so it is ready for another return
             lblChkBox1.Text = "";
             lblChkBox2.Text = "";
-            
+            dgReturnJob.DataSource = null;
+            MessageBox.Show("Return complete");
         }
     }
 }
