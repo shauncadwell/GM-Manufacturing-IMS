@@ -23,7 +23,9 @@ namespace GB_Manufacturing_IMS
         private projectDB dbconn = new projectDB();
         private Color successColor = System.Drawing.Color.Blue;
         private Color errorColor = System.Drawing.Color.DarkRed;
-        user currentUser = new user();
+        private user currentUser = new user();
+        private DataTable orderSummaryTable = new DataTable();
+        private DataTable inventorySearchTable = new DataTable();
 
         /* List to store itemNumber, jobCode, description, and quantity
          * Uses TempOrderInfo.cs
@@ -35,12 +37,12 @@ namespace GB_Manufacturing_IMS
         {
             InitializeComponent();
             populateSummaryTable();                     // Add data grid view headers
+            populateInventoryTable();
             currentUser = clone;
         }
 
         /* Create and populate Data Grid View headers
          * *  ***************************************/
-        DataTable orderSummaryTable = new DataTable();
         private void populateSummaryTable()
         {
             orderSummaryTable.Columns.Add("Item Number", typeof(int));
@@ -48,6 +50,20 @@ namespace GB_Manufacturing_IMS
             orderSummaryTable.Columns.Add("Quantity", typeof(int));
 
             orderSummary.DataSource = orderSummaryTable;    // Populate table headers
+        }
+
+        /* Create and populate Data Grid View headers
+         * *  ***************************************/
+        private void populateInventoryTable()
+        {
+            inventorySearchTable.Columns.Add("Item Number", typeof(int));
+            inventorySearchTable.Columns.Add("Description", typeof(string));
+            inventorySearchTable.Columns.Add("Number Available", typeof(int));
+
+            intentoryTable.DataSource = inventorySearchTable;    // Populate table headers
+
+            string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE (location = 'Warehouse 1' AND currentStock > 0)";
+            dbconn.fill(intentoryTable, query);
         }
 
         /*  Adds item data to orderInfo list and displays it in order summary

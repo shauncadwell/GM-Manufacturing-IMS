@@ -42,11 +42,17 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
+            this.intentoryTable = new System.Windows.Forms.DataGridView();
+            this.inventoryLbl = new System.Windows.Forms.Label();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.seperator = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intentoryTable)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -69,11 +75,16 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.seperator);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
+            this.splitContainer1.Panel2.Controls.Add(this.searchBox);
+            this.splitContainer1.Panel2.Controls.Add(this.inventoryLbl);
+            this.splitContainer1.Panel2.Controls.Add(this.intentoryTable);
             this.splitContainer1.Panel2.Controls.Add(this.orderSummary);
             this.splitContainer1.Panel2.Controls.Add(this.cancelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.submitOrderBtn);
             this.splitContainer1.Panel2.Controls.Add(this.orderContentsLbl);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 561);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -173,20 +184,20 @@
             this.orderSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderSummary.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.orderSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.orderSummary.Location = new System.Drawing.Point(29, 56);
+            this.orderSummary.Location = new System.Drawing.Point(15, 325);
             this.orderSummary.MultiSelect = false;
             this.orderSummary.Name = "orderSummary";
             this.orderSummary.ReadOnly = true;
             this.orderSummary.RowHeadersVisible = false;
             this.orderSummary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.orderSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderSummary.Size = new System.Drawing.Size(472, 274);
+            this.orderSummary.Size = new System.Drawing.Size(500, 175);
             this.orderSummary.TabIndex = 8;
             // 
             // cancelBtn
             // 
             this.cancelBtn.Enabled = false;
-            this.cancelBtn.Location = new System.Drawing.Point(277, 361);
+            this.cancelBtn.Location = new System.Drawing.Point(281, 519);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(102, 23);
             this.cancelBtn.TabIndex = 7;
@@ -198,7 +209,7 @@
             // submitOrderBtn
             // 
             this.submitOrderBtn.Enabled = false;
-            this.submitOrderBtn.Location = new System.Drawing.Point(143, 361);
+            this.submitOrderBtn.Location = new System.Drawing.Point(147, 519);
             this.submitOrderBtn.Name = "submitOrderBtn";
             this.submitOrderBtn.Size = new System.Drawing.Size(102, 23);
             this.submitOrderBtn.TabIndex = 6;
@@ -210,11 +221,65 @@
             // 
             this.orderContentsLbl.AutoSize = true;
             this.orderContentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderContentsLbl.Location = new System.Drawing.Point(178, 28);
+            this.orderContentsLbl.Location = new System.Drawing.Point(178, 288);
             this.orderContentsLbl.Name = "orderContentsLbl";
-            this.orderContentsLbl.Size = new System.Drawing.Size(175, 25);
+            this.orderContentsLbl.Size = new System.Drawing.Size(164, 25);
             this.orderContentsLbl.TabIndex = 1;
-            this.orderContentsLbl.Text = "Order Summary";
+            this.orderContentsLbl.Text = "Pending Order";
+            // 
+            // intentoryTable
+            // 
+            this.intentoryTable.AllowUserToAddRows = false;
+            this.intentoryTable.AllowUserToDeleteRows = false;
+            this.intentoryTable.AllowUserToResizeColumns = false;
+            this.intentoryTable.AllowUserToResizeRows = false;
+            this.intentoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.intentoryTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.intentoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.intentoryTable.Location = new System.Drawing.Point(15, 47);
+            this.intentoryTable.MultiSelect = false;
+            this.intentoryTable.Name = "intentoryTable";
+            this.intentoryTable.ReadOnly = true;
+            this.intentoryTable.RowHeadersVisible = false;
+            this.intentoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.intentoryTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.intentoryTable.Size = new System.Drawing.Size(500, 180);
+            this.intentoryTable.TabIndex = 9;
+            // 
+            // inventoryLbl
+            // 
+            this.inventoryLbl.AutoSize = true;
+            this.inventoryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryLbl.Location = new System.Drawing.Point(208, 9);
+            this.inventoryLbl.Name = "inventoryLbl";
+            this.inventoryLbl.Size = new System.Drawing.Size(109, 25);
+            this.inventoryLbl.TabIndex = 10;
+            this.inventoryLbl.Text = "Inventory";
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(272, 238);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(150, 20);
+            this.searchBox.TabIndex = 11;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(442, 237);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // seperator
+            // 
+            this.seperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.seperator.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.seperator.Location = new System.Drawing.Point(3, 275);
+            this.seperator.Name = "seperator";
+            this.seperator.Size = new System.Drawing.Size(527, 5);
+            this.seperator.TabIndex = 13;
             // 
             // NewOrder
             // 
@@ -222,7 +287,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 561);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -239,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intentoryTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -259,5 +325,10 @@
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.MaskedTextBox itemQuantity;
         private System.Windows.Forms.DataGridView orderSummary;
+        private System.Windows.Forms.Label inventoryLbl;
+        private System.Windows.Forms.DataGridView intentoryTable;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Panel seperator;
     }
 }
