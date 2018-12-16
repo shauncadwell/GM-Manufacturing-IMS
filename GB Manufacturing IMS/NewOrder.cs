@@ -190,6 +190,38 @@ namespace GB_Manufacturing_IMS
             addItemBtn.Enabled = true;
         }
 
+        /*  Populates inventory DGV based on search results
+         *  ***************************************/
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchDescription = searchBox.Text;
+            string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE location = 'Warehouse 1' AND description LIKE '%"+ searchDescription + "%';";
+            dbconn.fill(intentoryTable, query);
+        }
 
+        /*  Resets inventory DGV
+         *  ***************************************/
+        private void btnInventoryReset_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT itemID AS 'Item Number', description AS Description, currentStock AS 'Number Available' FROM Materials WHERE (location = 'Warehouse 1' AND currentStock > 0)";
+            dbconn.fill(intentoryTable, query);
+        }
+
+        /*  Populates item number when item clicked
+         *  ***************************************/
+        private void intentoryTable_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in intentoryTable.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                itemNumber.Text = row.Cells["Item Number"].Value.ToString();
+            }
+        }
     }
 }

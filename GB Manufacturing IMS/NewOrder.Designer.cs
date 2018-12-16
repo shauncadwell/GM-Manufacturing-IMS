@@ -38,21 +38,22 @@
             this.quantityLbl = new System.Windows.Forms.Label();
             this.itemNumberLbl = new System.Windows.Forms.Label();
             this.jobCodeLbl = new System.Windows.Forms.Label();
+            this.btnInventoryReset = new System.Windows.Forms.Button();
+            this.seperator = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.inventoryLbl = new System.Windows.Forms.Label();
+            this.intentoryTable = new System.Windows.Forms.DataGridView();
             this.orderSummary = new System.Windows.Forms.DataGridView();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.submitOrderBtn = new System.Windows.Forms.Button();
             this.orderContentsLbl = new System.Windows.Forms.Label();
-            this.intentoryTable = new System.Windows.Forms.DataGridView();
-            this.inventoryLbl = new System.Windows.Forms.Label();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.seperator = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intentoryTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,6 +76,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnInventoryReset);
             this.splitContainer1.Panel2.Controls.Add(this.seperator);
             this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel2.Controls.Add(this.searchBox);
@@ -175,6 +177,72 @@
             this.jobCodeLbl.TabIndex = 4;
             this.jobCodeLbl.Text = "Job Code:";
             // 
+            // btnInventoryReset
+            // 
+            this.btnInventoryReset.Location = new System.Drawing.Point(15, 237);
+            this.btnInventoryReset.Name = "btnInventoryReset";
+            this.btnInventoryReset.Size = new System.Drawing.Size(75, 23);
+            this.btnInventoryReset.TabIndex = 14;
+            this.btnInventoryReset.Text = "Reset";
+            this.btnInventoryReset.UseVisualStyleBackColor = true;
+            this.btnInventoryReset.Click += new System.EventHandler(this.btnInventoryReset_Click);
+            // 
+            // seperator
+            // 
+            this.seperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.seperator.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.seperator.Location = new System.Drawing.Point(3, 275);
+            this.seperator.Name = "seperator";
+            this.seperator.Size = new System.Drawing.Size(527, 5);
+            this.seperator.TabIndex = 13;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(442, 237);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(272, 238);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(150, 20);
+            this.searchBox.TabIndex = 5;
+            // 
+            // inventoryLbl
+            // 
+            this.inventoryLbl.AutoSize = true;
+            this.inventoryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryLbl.Location = new System.Drawing.Point(208, 9);
+            this.inventoryLbl.Name = "inventoryLbl";
+            this.inventoryLbl.Size = new System.Drawing.Size(109, 25);
+            this.inventoryLbl.TabIndex = 10;
+            this.inventoryLbl.Text = "Inventory";
+            // 
+            // intentoryTable
+            // 
+            this.intentoryTable.AllowUserToAddRows = false;
+            this.intentoryTable.AllowUserToDeleteRows = false;
+            this.intentoryTable.AllowUserToResizeColumns = false;
+            this.intentoryTable.AllowUserToResizeRows = false;
+            this.intentoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.intentoryTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.intentoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.intentoryTable.Location = new System.Drawing.Point(15, 47);
+            this.intentoryTable.MultiSelect = false;
+            this.intentoryTable.Name = "intentoryTable";
+            this.intentoryTable.ReadOnly = true;
+            this.intentoryTable.RowHeadersVisible = false;
+            this.intentoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.intentoryTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.intentoryTable.Size = new System.Drawing.Size(500, 180);
+            this.intentoryTable.TabIndex = 9;
+            this.intentoryTable.SelectionChanged += new System.EventHandler(this.intentoryTable_SelectionChanged);
+            // 
             // orderSummary
             // 
             this.orderSummary.AllowUserToAddRows = false;
@@ -212,7 +280,7 @@
             this.submitOrderBtn.Location = new System.Drawing.Point(147, 519);
             this.submitOrderBtn.Name = "submitOrderBtn";
             this.submitOrderBtn.Size = new System.Drawing.Size(102, 23);
-            this.submitOrderBtn.TabIndex = 6;
+            this.submitOrderBtn.TabIndex = 7;
             this.submitOrderBtn.Text = "Submit Order";
             this.submitOrderBtn.UseVisualStyleBackColor = true;
             this.submitOrderBtn.Click += new System.EventHandler(this.submitOrderBtn_Click);
@@ -226,60 +294,6 @@
             this.orderContentsLbl.Size = new System.Drawing.Size(164, 25);
             this.orderContentsLbl.TabIndex = 1;
             this.orderContentsLbl.Text = "Pending Order";
-            // 
-            // intentoryTable
-            // 
-            this.intentoryTable.AllowUserToAddRows = false;
-            this.intentoryTable.AllowUserToDeleteRows = false;
-            this.intentoryTable.AllowUserToResizeColumns = false;
-            this.intentoryTable.AllowUserToResizeRows = false;
-            this.intentoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.intentoryTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.intentoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.intentoryTable.Location = new System.Drawing.Point(15, 47);
-            this.intentoryTable.MultiSelect = false;
-            this.intentoryTable.Name = "intentoryTable";
-            this.intentoryTable.ReadOnly = true;
-            this.intentoryTable.RowHeadersVisible = false;
-            this.intentoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.intentoryTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.intentoryTable.Size = new System.Drawing.Size(500, 180);
-            this.intentoryTable.TabIndex = 9;
-            // 
-            // inventoryLbl
-            // 
-            this.inventoryLbl.AutoSize = true;
-            this.inventoryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventoryLbl.Location = new System.Drawing.Point(208, 9);
-            this.inventoryLbl.Name = "inventoryLbl";
-            this.inventoryLbl.Size = new System.Drawing.Size(109, 25);
-            this.inventoryLbl.TabIndex = 10;
-            this.inventoryLbl.Text = "Inventory";
-            // 
-            // searchBox
-            // 
-            this.searchBox.Location = new System.Drawing.Point(272, 238);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(150, 20);
-            this.searchBox.TabIndex = 11;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(442, 237);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 12;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // seperator
-            // 
-            this.seperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.seperator.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.seperator.Location = new System.Drawing.Point(3, 275);
-            this.seperator.Name = "seperator";
-            this.seperator.Size = new System.Drawing.Size(527, 5);
-            this.seperator.TabIndex = 13;
             // 
             // NewOrder
             // 
@@ -303,8 +317,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intentoryTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +344,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Panel seperator;
+        private System.Windows.Forms.Button btnInventoryReset;
     }
 }
