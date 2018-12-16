@@ -30,6 +30,7 @@
         {
             this.lblReturnTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblReturnError = new System.Windows.Forms.Label();
             this.btnReturnSubmit = new System.Windows.Forms.Button();
             this.txtReturnItem = new System.Windows.Forms.TextBox();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -43,8 +44,8 @@
             this.lblChkBox1 = new System.Windows.Forms.Label();
             this.lblChkBox2 = new System.Windows.Forms.Label();
             this.btnReturnConfirm = new System.Windows.Forms.Button();
-            this.lblReturnError = new System.Windows.Forms.Label();
             this.dgReturnJob = new System.Windows.Forms.DataGridView();
+            this.lblConfirmWarning = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReturnJob)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox1.Controls.Add(this.lblReturnError);
             this.groupBox1.Controls.Add(this.btnReturnSubmit);
             this.groupBox1.Controls.Add(this.txtReturnItem);
@@ -74,6 +76,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipment Return Details";
+            // 
+            // lblReturnError
+            // 
+            this.lblReturnError.AutoSize = true;
+            this.lblReturnError.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnError.ForeColor = System.Drawing.Color.Red;
+            this.lblReturnError.Location = new System.Drawing.Point(24, 145);
+            this.lblReturnError.Name = "lblReturnError";
+            this.lblReturnError.Size = new System.Drawing.Size(0, 18);
+            this.lblReturnError.TabIndex = 5;
             // 
             // btnReturnSubmit
             // 
@@ -128,7 +140,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 334);
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(29, 333);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(431, 20);
             this.label3.TabIndex = 2;
@@ -139,6 +152,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Blue;
             this.label4.Location = new System.Drawing.Point(29, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(482, 20);
@@ -149,7 +163,7 @@
             // 
             this.lblRetItemChk.AutoSize = true;
             this.lblRetItemChk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRetItemChk.Location = new System.Drawing.Point(343, 157);
+            this.lblRetItemChk.Location = new System.Drawing.Point(343, 114);
             this.lblRetItemChk.Name = "lblRetItemChk";
             this.lblRetItemChk.Size = new System.Drawing.Size(87, 16);
             this.lblRetItemChk.TabIndex = 6;
@@ -159,7 +173,7 @@
             // 
             this.lblReturnStatChk.AutoSize = true;
             this.lblReturnStatChk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnStatChk.Location = new System.Drawing.Point(324, 114);
+            this.lblReturnStatChk.Location = new System.Drawing.Point(324, 77);
             this.lblReturnStatChk.Name = "lblReturnStatChk";
             this.lblReturnStatChk.Size = new System.Drawing.Size(106, 16);
             this.lblReturnStatChk.TabIndex = 5;
@@ -169,7 +183,7 @@
             // 
             this.lblReturnJob.AutoSize = true;
             this.lblReturnJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnJob.Location = new System.Drawing.Point(360, 222);
+            this.lblReturnJob.Location = new System.Drawing.Point(360, 175);
             this.lblReturnJob.Name = "lblReturnJob";
             this.lblReturnJob.Size = new System.Drawing.Size(70, 16);
             this.lblReturnJob.TabIndex = 7;
@@ -179,7 +193,7 @@
             // 
             this.lblChkBox1.AutoSize = true;
             this.lblChkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChkBox1.Location = new System.Drawing.Point(441, 114);
+            this.lblChkBox1.Location = new System.Drawing.Point(441, 77);
             this.lblChkBox1.Name = "lblChkBox1";
             this.lblChkBox1.Size = new System.Drawing.Size(17, 16);
             this.lblChkBox1.TabIndex = 8;
@@ -189,7 +203,7 @@
             // 
             this.lblChkBox2.AutoSize = true;
             this.lblChkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChkBox2.Location = new System.Drawing.Point(441, 157);
+            this.lblChkBox2.Location = new System.Drawing.Point(441, 114);
             this.lblChkBox2.Name = "lblChkBox2";
             this.lblChkBox2.Size = new System.Drawing.Size(17, 16);
             this.lblChkBox2.TabIndex = 9;
@@ -206,16 +220,6 @@
             this.btnReturnConfirm.UseVisualStyleBackColor = true;
             this.btnReturnConfirm.Click += new System.EventHandler(this.btnReturnConfirm_Click);
             // 
-            // lblReturnError
-            // 
-            this.lblReturnError.AutoSize = true;
-            this.lblReturnError.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnError.ForeColor = System.Drawing.Color.Red;
-            this.lblReturnError.Location = new System.Drawing.Point(24, 145);
-            this.lblReturnError.Name = "lblReturnError";
-            this.lblReturnError.Size = new System.Drawing.Size(0, 18);
-            this.lblReturnError.TabIndex = 5;
-            // 
             // dgReturnJob
             // 
             this.dgReturnJob.AllowUserToAddRows = false;
@@ -226,17 +230,28 @@
             this.dgReturnJob.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgReturnJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReturnJob.ColumnHeadersVisible = false;
-            this.dgReturnJob.Location = new System.Drawing.Point(444, 198);
+            this.dgReturnJob.Location = new System.Drawing.Point(444, 157);
             this.dgReturnJob.Name = "dgReturnJob";
             this.dgReturnJob.RowHeadersVisible = false;
             this.dgReturnJob.Size = new System.Drawing.Size(118, 58);
             this.dgReturnJob.TabIndex = 10;
+            // 
+            // lblConfirmWarning
+            // 
+            this.lblConfirmWarning.AutoSize = true;
+            this.lblConfirmWarning.ForeColor = System.Drawing.Color.Blue;
+            this.lblConfirmWarning.Location = new System.Drawing.Point(339, 227);
+            this.lblConfirmWarning.Name = "lblConfirmWarning";
+            this.lblConfirmWarning.Size = new System.Drawing.Size(223, 13);
+            this.lblConfirmWarning.TabIndex = 11;
+            this.lblConfirmWarning.Text = "Click the \"Check In\" button to clear the fields.";
             // 
             // EquipReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 418);
+            this.Controls.Add(this.lblConfirmWarning);
             this.Controls.Add(this.dgReturnJob);
             this.Controls.Add(this.btnReturnConfirm);
             this.Controls.Add(this.lblChkBox2);
@@ -281,5 +296,6 @@
         private System.Windows.Forms.Button btnReturnConfirm;
         private System.Windows.Forms.Label lblReturnError;
         private System.Windows.Forms.DataGridView dgReturnJob;
+        private System.Windows.Forms.Label lblConfirmWarning;
     }
 }

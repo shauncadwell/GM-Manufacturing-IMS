@@ -81,7 +81,7 @@ namespace GB_Manufacturing_IMS
                 comboStatus.Text = "";
                 lblChkBox1.Text = "";
                 lblChkBox2.Text = "";
-                //dgReturnJob = null;
+                dgReturnJob.DataSource = null;
             }
         }
 
