@@ -53,7 +53,9 @@ namespace GB_Manufacturing_IMS
 
         private void btnReturnEquip_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This section is not yet available.", "Section Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("This section is not yet available.", "Section Not Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            EquipReturn equipRtn = new EquipReturn(currentUser);
+            f.createWindow("Equipment Return", this, equipRtn, true, true);
         }
     }
 }

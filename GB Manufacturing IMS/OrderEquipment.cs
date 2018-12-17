@@ -215,5 +215,10 @@ namespace GB_Manufacturing_IMS
         {
             resetAll();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
