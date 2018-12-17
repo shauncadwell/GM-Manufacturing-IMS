@@ -22,7 +22,9 @@ namespace GB_Manufacturing_IMS
 
         private void EquipReturn_Load(object sender, EventArgs e)
         {
-
+            txtReturnEID.Text = currentUser.getID().ToString();
+            comboStatus.SelectedIndex = 0;
+            txtReturnItem.Select();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace GB_Manufacturing_IMS
                     {
                         case "Working":
                             {
-                                lblChkBox1.Text = "In Stock";
+                                lblChkBox1.Text = "Returned";
                                 break;
                             }
                         case "Not Working":
@@ -55,32 +57,22 @@ namespace GB_Manufacturing_IMS
                                 lblChkBox1.Text = "Damaged";
                                 break;
                             }
-                        case "Missing":
-                            {
-                                lblChkBox1.Text = "Lost";
-                                break;
-                            }
-                        case "Stolen":
-                            {
-                                lblChkBox1.Text = "Shrink";
-                                break;
-                            }
                     }
                     //Clears left side and populates right side for confirmation.
-                    comboStatus.Text = "";
+                    comboStatus.SelectedIndex = 0;
                     lblChkBox2.Text = txtReturnItem.Text;
-                    txtReturnItem.Text = "";
+                    txtReturnItem.Text = null;
                     lblChkBox3.Text = txtReturnEID.Text;
-                    txtReturnEID.Text = "";
+
 
                     //MySQL query to pull Job Code to confirm which item you are returning.
                     //This step is to insure the User does not accidentally return the wrong item.
                     string input1 = lblChkBox2.Text;
                     string input2 = lblChkBox3.Text;
-                    string query1 = "SELECT jobCode FROM EquipmentRental WHERE equipmentID LIKE '%" + input1 + "%' AND employeeID LIKE '%" + input2 + "%'";
-                    mydb.fill(dgReturnJob, query1);
-                    string query2 = "SELECT rentalID FROM EquipmentRental WHERE equipmentID LIKE '%" + input1 + "%' AND employeeID LIKE '%" + input2 + "%'";
-                    mydb.fill(dgReturnRID, query2);
+                    string query1 = "SELECT jobCode FROM EquipmentRental WHERE equipmentID LIKE '%" + input1 + "%' AND employeeID LIKE '%" + currentUser.getID().ToString() + "%'";
+                    lblJobCode.Text = (mydb.getString(query1));
+                    string query2 = "SELECT rentalID FROM EquipmentRental WHERE equipmentID LIKE '%" + input1 + "%' AND employeeID LIKE '%" + currentUser.getID().ToString() + "%'";
+                    lblRentalID.Text = (mydb.getString(query2));;
                     lblReturnError.Text = "";
                 }
 
@@ -92,8 +84,7 @@ namespace GB_Manufacturing_IMS
                     lblChkBox1.Text = "";
                     lblChkBox2.Text = "";
                     lblChkBox3.Text = "";
-                    dgReturnJob.DataSource = null;
-                    dgReturnRID.DataSource = null;
+
                 }
             }
         
@@ -110,15 +101,16 @@ namespace GB_Manufacturing_IMS
 
         private void btnReturnConfirm_Click(object sender, EventArgs e)
         {
+            try
+            {
             //Pulls values from right side jobCode and rentalID for insert query
             string insert1 = lblChkBox1.Text;
             string insert2 = lblChkBox2.Text;
             string insert3 = lblChkBox3.Text;
-            string insert4 = dgReturnJob.SelectedCells[0].Value.ToString();
-            string insert5 = dgReturnRID.SelectedCells[0].Value.ToString();
+            string insert4 = lblRentalID.Text = "...";
+            string insert5 = lblJobCode.Text = "...";
 
-            try
-            {
+           
                 /*
                 string isReturnedChk = "SELECT returnDate FROM EquipmentRental WHERE equipmentID LIKE '%" + insert2 + "%' AND employeeID LIKE '%" + insert3 + "%' AND jobCode LIKE '%" + insert4 + "%' AND rentalID LIKE '%" + insert5 + "%'";
                 string checkReturn = mydb.getString(isReturnedChk);
@@ -148,8 +140,6 @@ namespace GB_Manufacturing_IMS
             lblChkBox1.Text = "";
             lblChkBox2.Text = "";
             lblChkBox3.Text = "";
-            dgReturnJob.DataSource = null;
-            dgReturnRID.DataSource = null;
             MessageBox.Show("Return complete");
         }
     }

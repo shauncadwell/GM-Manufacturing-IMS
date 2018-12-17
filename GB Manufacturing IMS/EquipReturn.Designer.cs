@@ -30,6 +30,8 @@
         {
             this.lblReturnTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtReturnEID = new System.Windows.Forms.TextBox();
+            this.lblReturnEID = new System.Windows.Forms.Label();
             this.lblReturnError = new System.Windows.Forms.Label();
             this.btnReturnSubmit = new System.Windows.Forms.Button();
             this.txtReturnItem = new System.Windows.Forms.TextBox();
@@ -44,17 +46,13 @@
             this.lblChkBox1 = new System.Windows.Forms.Label();
             this.lblChkBox2 = new System.Windows.Forms.Label();
             this.btnReturnConfirm = new System.Windows.Forms.Button();
-            this.dgReturnJob = new System.Windows.Forms.DataGridView();
             this.lblConfirmWarning = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgReturnRID = new System.Windows.Forms.DataGridView();
-            this.lblReturnEID = new System.Windows.Forms.Label();
-            this.txtReturnEID = new System.Windows.Forms.TextBox();
             this.lblRetEIDChk = new System.Windows.Forms.Label();
             this.lblChkBox3 = new System.Windows.Forms.Label();
+            this.lblJobCode = new System.Windows.Forms.Label();
+            this.lblRentalID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReturnJob)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReturnRID)).BeginInit();
             this.SuspendLayout();
             // 
             // lblReturnTitle
@@ -86,6 +84,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipment Return Details";
             // 
+            // txtReturnEID
+            // 
+            this.txtReturnEID.Location = new System.Drawing.Point(119, 124);
+            this.txtReturnEID.Name = "txtReturnEID";
+            this.txtReturnEID.ReadOnly = true;
+            this.txtReturnEID.Size = new System.Drawing.Size(143, 22);
+            this.txtReturnEID.TabIndex = 7;
+            // 
+            // lblReturnEID
+            // 
+            this.lblReturnEID.AutoSize = true;
+            this.lblReturnEID.Location = new System.Drawing.Point(20, 127);
+            this.lblReturnEID.Name = "lblReturnEID";
+            this.lblReturnEID.Size = new System.Drawing.Size(89, 16);
+            this.lblReturnEID.TabIndex = 6;
+            this.lblReturnEID.Text = "Employee ID:";
+            // 
             // lblReturnError
             // 
             this.lblReturnError.AutoSize = true;
@@ -115,6 +130,7 @@
             // 
             // comboStatus
             // 
+            this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.FormattingEnabled = true;
             this.comboStatus.Items.AddRange(new object[] {
             "Working",
@@ -229,22 +245,6 @@
             this.btnReturnConfirm.UseVisualStyleBackColor = true;
             this.btnReturnConfirm.Click += new System.EventHandler(this.btnReturnConfirm_Click);
             // 
-            // dgReturnJob
-            // 
-            this.dgReturnJob.AllowUserToAddRows = false;
-            this.dgReturnJob.AllowUserToDeleteRows = false;
-            this.dgReturnJob.AllowUserToResizeColumns = false;
-            this.dgReturnJob.AllowUserToResizeRows = false;
-            this.dgReturnJob.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgReturnJob.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgReturnJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgReturnJob.ColumnHeadersVisible = false;
-            this.dgReturnJob.Location = new System.Drawing.Point(445, 225);
-            this.dgReturnJob.Name = "dgReturnJob";
-            this.dgReturnJob.RowHeadersVisible = false;
-            this.dgReturnJob.Size = new System.Drawing.Size(133, 24);
-            this.dgReturnJob.TabIndex = 10;
-            // 
             // lblConfirmWarning
             // 
             this.lblConfirmWarning.AutoSize = true;
@@ -264,38 +264,6 @@
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Rental ID:";
-            // 
-            // dgReturnRID
-            // 
-            this.dgReturnRID.AllowUserToAddRows = false;
-            this.dgReturnRID.AllowUserToDeleteRows = false;
-            this.dgReturnRID.AllowUserToResizeColumns = false;
-            this.dgReturnRID.AllowUserToResizeRows = false;
-            this.dgReturnRID.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgReturnRID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgReturnRID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgReturnRID.ColumnHeadersVisible = false;
-            this.dgReturnRID.Location = new System.Drawing.Point(445, 259);
-            this.dgReturnRID.Name = "dgReturnRID";
-            this.dgReturnRID.RowHeadersVisible = false;
-            this.dgReturnRID.Size = new System.Drawing.Size(133, 25);
-            this.dgReturnRID.TabIndex = 13;
-            // 
-            // lblReturnEID
-            // 
-            this.lblReturnEID.AutoSize = true;
-            this.lblReturnEID.Location = new System.Drawing.Point(20, 127);
-            this.lblReturnEID.Name = "lblReturnEID";
-            this.lblReturnEID.Size = new System.Drawing.Size(89, 16);
-            this.lblReturnEID.TabIndex = 6;
-            this.lblReturnEID.Text = "Employee ID:";
-            // 
-            // txtReturnEID
-            // 
-            this.txtReturnEID.Location = new System.Drawing.Point(119, 124);
-            this.txtReturnEID.Name = "txtReturnEID";
-            this.txtReturnEID.Size = new System.Drawing.Size(143, 22);
-            this.txtReturnEID.TabIndex = 7;
             // 
             // lblRetEIDChk
             // 
@@ -317,17 +285,35 @@
             this.lblChkBox3.TabIndex = 15;
             this.lblChkBox3.Text = "...";
             // 
+            // lblJobCode
+            // 
+            this.lblJobCode.AutoSize = true;
+            this.lblJobCode.Location = new System.Drawing.Point(442, 231);
+            this.lblJobCode.Name = "lblJobCode";
+            this.lblJobCode.Size = new System.Drawing.Size(16, 13);
+            this.lblJobCode.TabIndex = 16;
+            this.lblJobCode.Text = "...";
+            // 
+            // lblRentalID
+            // 
+            this.lblRentalID.AutoSize = true;
+            this.lblRentalID.Location = new System.Drawing.Point(442, 267);
+            this.lblRentalID.Name = "lblRentalID";
+            this.lblRentalID.Size = new System.Drawing.Size(16, 13);
+            this.lblRentalID.TabIndex = 17;
+            this.lblRentalID.Text = "...";
+            // 
             // EquipReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 418);
+            this.ClientSize = new System.Drawing.Size(591, 437);
+            this.Controls.Add(this.lblRentalID);
+            this.Controls.Add(this.lblJobCode);
             this.Controls.Add(this.lblChkBox3);
             this.Controls.Add(this.lblRetEIDChk);
-            this.Controls.Add(this.dgReturnRID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblConfirmWarning);
-            this.Controls.Add(this.dgReturnJob);
             this.Controls.Add(this.btnReturnConfirm);
             this.Controls.Add(this.lblChkBox2);
             this.Controls.Add(this.lblChkBox1);
@@ -346,8 +332,6 @@
             this.Load += new System.EventHandler(this.EquipReturn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReturnJob)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgReturnRID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,13 +355,13 @@
         private System.Windows.Forms.Label lblChkBox2;
         private System.Windows.Forms.Button btnReturnConfirm;
         private System.Windows.Forms.Label lblReturnError;
-        private System.Windows.Forms.DataGridView dgReturnJob;
         private System.Windows.Forms.Label lblConfirmWarning;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgReturnRID;
         private System.Windows.Forms.TextBox txtReturnEID;
         private System.Windows.Forms.Label lblReturnEID;
         private System.Windows.Forms.Label lblRetEIDChk;
         private System.Windows.Forms.Label lblChkBox3;
+        private System.Windows.Forms.Label lblJobCode;
+        private System.Windows.Forms.Label lblRentalID;
     }
 }

@@ -43,11 +43,11 @@
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(195, 21);
+            this.lblTitle.Location = new System.Drawing.Point(108, 24);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(613, 55);
+            this.lblTitle.Size = new System.Drawing.Size(897, 55);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Inventory Management System";
+            this.lblTitle.Text = "Inventory Management System - Warehouse 1";
             // 
             // btnQuit
             // 
