@@ -84,7 +84,7 @@ namespace GB_Manufacturing_IMS
                 string query = "SELECT employeeID FROM Employees WHERE username='" + userID + "' AND userPass ='" + password + "';";
                 verified = db.getBool(query, true);
 
-                if (verified)
+                if (verified) //adding comment to this 
                 {
                     //Set user information
                     uid = Convert.ToInt32(db.getString("SELECT employeeID FROM Employees WHERE username = '" + userID + "' AND userPass = '" + password + "'; "));
